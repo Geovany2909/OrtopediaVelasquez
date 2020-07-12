@@ -38,7 +38,7 @@ class productsController extends Controller
         if($file = $request->file('photo')){
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/'.$temp_name));
+            $img->resize(320, 240)->save(public_path('imgProducts/'.$temp_name));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
@@ -56,8 +56,7 @@ class productsController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        dd($product);
-        //return view('admin.products.edit', compact('product'));
+        return view('admin.products.edit', compact('product'));
     }
 
     public function update(ValidateFormProducts $request, $id)
@@ -69,12 +68,12 @@ class productsController extends Controller
                 //verifica si anteriormente tiene una foto y procede a eliminarla para añadir una nueva
                 if ($products->photo) {
                     $name = $products->photo;
-                    $dropFile = public_path() . "/images/" . $name;
+                    $dropFile = public_path() . "/imgProducts/" . $name;
                     unlink($dropFile);
                 }
                 $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
                 $img = \Image::make($file);
-                $img->resize(320, 240)->save(public_path('images/' . $temp_name));
+                $img->resize(320, 240)->save(public_path('imgProducts/' . $temp_name));
                 $input['photo'] = $temp_name;
             }
 
@@ -88,7 +87,7 @@ class productsController extends Controller
         $products = Product::findOrFail($id);
         if ($products->photo) {
             $name = $products->photo;
-            $dropFile = public_path() . "/images/" . $name;
+            $dropFile = public_path() . "/imgProducts/" . $name;
             unlink($dropFile);
         }
         $products->delete();

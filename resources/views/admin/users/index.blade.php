@@ -62,7 +62,7 @@ Crear Productos
                         <td>
                             <a href="{{ route('users.edit', $user->id) }}" class="action green"><i
                                     class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                            <a href="{{ route('users.destroy', $user->id) }}" class="action red"><i class="fa fa-trash"
+                            <a href="{{ route('users.show', $user->id) }}" class="action red"><i class="fa fa-trash"
                                     aria-hidden="true"></i></a>
                         </td>
                     </tr>

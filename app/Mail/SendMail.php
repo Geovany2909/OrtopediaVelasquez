@@ -20,6 +20,8 @@ class SendMail extends Mailable
 
     public function build()
     {
-        return $this->from("admin@ortopedia.org")->view('mail.contactMail');
+        return $this->from("admin@ortopedia.org")
+            ->subject('Ortopedia Velasquez')
+            ->view('mail.contactMail');
     }
 }

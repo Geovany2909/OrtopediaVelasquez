@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-class usersController extends Controller 
+class usersController extends Controller
 {
     public function __construct()
     {
@@ -36,11 +36,11 @@ class usersController extends Controller
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/' . $temp_name));
+            $img->resize(320, 240)->save(public_path('imgUsers/' . $temp_name));
             $input['photo'] = $temp_name;
         }
-
-        $input['password'] = bcrypt($request->password);
+        $password = $request->password;
+        $input['password'] = bcrypt($password);
 
         User::create($input);
         Alert::success('Agregado', 'El usuario se ha agregado correctamente');
@@ -65,12 +65,17 @@ class usersController extends Controller
         $pass = $request->input('password');
         $credentials = Auth::user();
         $users = User::findOrfail($id);
-
+        /*/
+        *
+        * Compueba que la contraseña insertada en el form
+        *       es igual a la de la base de datos
+        */
         if (Hash::check($pass, $credentials->getAuthPassword())) {
+            //Verifica si hay una foto en el form y elimina la existente
             if ($file = $request->file('photo')) {
                 if ($users->photo) {
-                    $originalRut = $users->photo;
-                    $originalFile = public_path() . "/images/" . $originalRut;
+                    $originalRout = $users->photo;
+                    $originalFile = public_path() . "/imgUsers/" . $originalRout;
                     unlink($originalFile);
                 }
 
@@ -81,9 +86,9 @@ class usersController extends Controller
             }
             $users->update($input);
             Alert::info('Actualizado', "El usuario $users->name ha sido actualizado exitosamente");
-            return redirect('admin/users');
+            return redirect() - route('users.index');
         } else {
-            Alert::error('Error', 'La contraseña es incorrecta');
+            Alert::warning('Error', 'La contraseña es incorrecta');
             return redirect()->route('users.edit', $users->id);
         }
     }

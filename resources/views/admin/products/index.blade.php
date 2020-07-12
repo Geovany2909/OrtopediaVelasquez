@@ -15,7 +15,6 @@ Crear Productos
     li a {
         color: #000;
         width: 100%;
-        background-color: thistle;
         border-radius: 20%;
     }
 </style>
@@ -60,19 +59,19 @@ Crear Productos
                     <td>${{ $p->price }}</td>
                     <td>{{ $p->description }}</td>
                     <td>{{ $p->category }}</td>
-                    <td>creado</td>
-                    <td>actua</td>
-                    {{-- <td>{{ $p->created_at->diffForHumans()}}</td>
-                    <td>{{ $p->updated_at->diffForHumans()}}</td> --}}
+                    <td>{{ $p->created_at->diffForHumans()}}</td>
+                    <td>{{ $p->updated_at->diffForHumans()}}</td>
                     <td>
                         <a href="{{ route('products.edit', $p->id) }}" class="action green"><i
                                 class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                        <a href="{{ route('products.destroy', $p->id) }}" class="action red"><i class="fa fa-trash"
+                        <a href="{{ route('products.show', $p->id) }}" class="action red"><i class="fa fa-trash"
                                 aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 @empty
-
+                @section('empty')
+                <h2 class="color:red;"> No Hay productos</h2>
+                @endsection
                 @endforelse
 
             </tbody>
