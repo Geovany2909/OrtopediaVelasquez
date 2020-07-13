@@ -1,56 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>CONTACTO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template - shit</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Lato&family=Raleway&family=Roboto&display=swap');
-
         * {
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            background-color: #ffffff;
         }
 
         .content {
             width: 60%;
             margin: auto;
             margin-top: 20px;
+            border-radius: 3px;
+            border:rgb(0, 54, 47) 4px solid;
+            border-radius: 2%;
         }
 
         .title,
         .message {
-            width: 100%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
         }
 
         .title {
-            background-color: #007c91;
+            width: 100%;
+            background-color: rgb(17, 165, 158);
             text-align: center;
-            font-family: 'Julius Sans One', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             color: #ffffff;
-            font-size: 2rem;
+            font-size: 1.2rem;
         }
 
         .message {
-            border: 1px solid #007c91;
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.2rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            background-color: rgb(247, 245, 245);
         }
 
         .remitente,
         .asunto,
         .contenido {
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
         }
 
-        .content {
+        .footer {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            margin-top: 10%;
+            margin-bottom: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(17, 165, 158);
+            color: white;
             text-align: center;
+            display: block;
         }
-
-        .title {
-            font-size: 84px;
+        .message, .remitente, .asunto {
+            text-align: center;
         }
     </style>
 </head>
@@ -58,36 +74,49 @@
 <body>
     <div class="content">
         <div class="title">
-            <p>
-                {{ $data['name'] }}
-            </p>
+            <img align="center" alt=""
+                src="https://mcusercontent.com/49b329ec2f0344be23d09f081/images/14bdbaa9-83a7-45bd-8f19-f25e9a76009a.jpg"
+                width="122.58999999999999" style="max-width:299px; padding-bottom: 0; display: inline !important;
+                vertical-align: bottom; border-radius: 18%;" class="mcnImage">
         </div>
-        <div class="message">
 
+        <div class="message">
+            <p class="remitente">
+                <strong>
+                    Nombre:
+                </strong>
+                Geovanni Carmona
+            </p>
 
             <p class="remitente">
                 <strong>
                     Remitente:
                 </strong>
-                {{ $data['email'] }}
+                <a href="">geovanni@gmail.com</a>
             </p>
 
             <p class="asunto">
                 <strong>
-                    Telefono:
+                    Asunto:
                 </strong>
-                {{ $data['phone'] }}
+                Consulta
             </p>
 
             <p class="contenido">
                 <strong>
                     Mensaje:
                 </strong>
-                {{ $data['comment'] }}
+                Quiero quitarle la patita a mi perro para hacer tacos
             </p>
-
+            <div class="footer">
+                <br>
+                <h3>Ortopedia Velasquez</h3>
+                <strong>Copyright © Todos los derechos reservados</strong>
+                <br>
+                <br>
+            </div>
         </div>
     </div>
+</body>
 
-    </body>
 </html>

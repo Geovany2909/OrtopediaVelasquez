@@ -106,6 +106,10 @@ class usersController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function showInfoUser(){
+        return view('admin.users.userInfo');
+    }
+
     protected function random_string()
     {
         $key = '';

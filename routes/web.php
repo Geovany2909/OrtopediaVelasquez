@@ -21,17 +21,11 @@ Route::middleware(['guest'])->group(function () {
 });
 
 //ruta que sirve para ver la informacion del usuario logeado
-Route::get('admin/users/info', function () {
-    return view('admin.users.userInfo');
-})->middleware('auth', 'verified')->name('userInfo');
-
-Route::get('admin/products/galery', function () {
-    $products = Product::all();
-    return view('admin.products.galery', compact('products'));
-})->middleware('auth', 'verified')->name('galery');
+Route::get('admin/users/info', 'usersController@showInfoUser')->name('userInfo');
+//
+Route::get('admin/products/galery', 'productsController@galery')->name('galery');
 
 Auth::routes(['verify' => true]);
-
 Route::get('admin/home', 'HomeController@index')->name('home');
 Route::resources([
     'admin/products' => 'productsController',

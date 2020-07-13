@@ -14,7 +14,7 @@ Galery
     <div class="col-md-4">
         <div class="card">
             <div class="user-img">
-                <img class="imagen" src="/images/doctor.png" width="150" alt="">
+                <img class="imagen" src="/images/products/{{ $product->photo ? $product->photo : 'doctor.png' }}" width="150" alt="">
             </div>
             <span class="user-name">{{ $product->name }}</span>
             <span class="user-tittle">{{ $product->category }}</span>

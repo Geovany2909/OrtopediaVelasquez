@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\ValidateFormProducts;
+use App\Http\Requests\validateFormProducts;
 use Carbon\Carbon;
 
 class productsController extends Controller
@@ -20,10 +20,10 @@ class productsController extends Controller
     public function index()
     {
         $products = Product::simplePaginate(4);
-        $products->each(function($products){
+        $products->each(function ($products) {
             $products->category;
         });
-        return view('admin.products.index',compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
@@ -32,17 +32,17 @@ class productsController extends Controller
     }
 
 
-    public function store(ValidateFormProducts $request)
+    public function store(validateFormProducts $request)
     {
         $input = $request->all();
-        if($file = $request->file('photo')){
+        if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('imgProducts/'.$temp_name));
+            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
-        Alert::success('Creado', 'El Producto se creo');
+        Alert::success('Exito!', 'Producto Creado Correctamente');
         return redirect()->route('products.index');
     }
 
@@ -64,22 +64,22 @@ class productsController extends Controller
         $products = Product::findOrFail($id);
         $input = $request->all();
 
-            if ($file = $request->file('photo')) {
-                //verifica si anteriormente tiene una foto y procede a eliminarla para añadir una nueva
-                if ($products->photo) {
-                    $name = $products->photo;
-                    $dropFile = public_path() . "/imgProducts/" . $name;
-                    unlink($dropFile);
-                }
-                $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
-                $img = \Image::make($file);
-                $img->resize(320, 240)->save(public_path('imgProducts/' . $temp_name));
-                $input['photo'] = $temp_name;
+        if ($file = $request->file('photo')) {
+            //verifica si anteriormente tiene una foto y procede a eliminarla para añadir una nueva
+            if ($products->photo) {
+                $name = $products->photo;
+                $dropFile = public_path() . "images/products/" . $name;
+                unlink($dropFile);
             }
+            $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
+            $img = \Image::make($file);
+            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
+            $input['photo'] = $temp_name;
+        }
 
-            $products->update($input);
-            Alert::info('Actualizado', 'El producto ha sido actualizado');
-            return redirect()->route('products.index');
+        $products->update($input);
+        Alert::info('Actualizado', 'El producto ha sido actualizado');
+        return redirect()->route('products.index');
     }
 
     public function destroy($id)
@@ -87,7 +87,7 @@ class productsController extends Controller
         $products = Product::findOrFail($id);
         if ($products->photo) {
             $name = $products->photo;
-            $dropFile = public_path() . "/imgProducts/" . $name;
+            $dropFile = public_path() . "/images/products/" . $name;
             unlink($dropFile);
         }
         $products->delete();
@@ -95,8 +95,10 @@ class productsController extends Controller
         return redirect('admin/products');
     }
 
-    public function galery(){
-        return view('admin.products.galery');
+    public function galery()
+    {
+        $products = Product::all();
+        return view('admin.products.galery', compact('products'));
     }
     protected function random_string()
     {

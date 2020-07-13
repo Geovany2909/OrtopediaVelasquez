@@ -6,89 +6,95 @@ Crear Producto
 @endsection
 
 @section('css')
-{{-- <style>
-    body {
-        margin: 0
-    }
-
-    .formCreate {
-        width: 340px;
-        height: 440px;
-        background: #e6e6e6;
-        border-radius: 8px;
-        box-shadow: 0 0 40px -10px #000;
-        margin: calc(50vh - 220px) auto;
-        padding: 20px 30px;
-        max-width: calc(100vw - 40px);
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        position: relative
-    }
-
-    h2 {
-        margin: 10px 0;
-        padding-bottom: 10px;
-        width: 220px;
-        color: #78788c;
-        border-bottom: 3px solid #78788c
-    }
-
-    .form-input-css {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        background: none;
-        outline: none;
-        resize: none;
-        border: 0;
-        font-family: 'Montserrat', sans-serif;
-        transition: all .3s;
-        border-bottom: 2px solid #bebed2
-    }
-
-
-    .form-input-css:focus {
-        border-bottom: 2px solid #78788c
-    }
-
-    p:before {
-        content: attr(type);
-        display: block;
-        margin: 28px 0 0;
-        font-size: 14px;
-        color: #5a5a5a
-    }
-
-    button {
-        float: right;
-        padding: 8px 12px;
-        margin: 8px 0 0;
-        font-family: 'Montserrat', sans-serif;
-        border: 2px solid #78788c;
-        background: 0;
-        color: #5a5a6e;
-        cursor: pointer;
-        transition: all .3s
-    }
-
-    button:hover {
-        background: #78788c;
-        color: #fff
-    }
-
-
-    span {
-        margin: 0 5px 0 15px
-    }
-</style> --}}
+<link rel="stylesheet" href="{{ asset('inicio/css/add.css') }}">
 @endsection
 @section('content')
-{{-- <form class="formCreate">
-    <h2>Crear Productos</h2>
-    <p type="Name:"><input  class="form-input-css" placeholder="Write your name here.."></input></p>
-    <p type="Email:"><input class="form-input-css"  placeholder="Let us know how to contact you back.."></input></p>
-    <p type="Message:"><input class="form-input-css" placeholder="What would you like to tell us.."></input></p>
-    <button>Send Message</button>
-</form> --}}
+<div class="col-md-12">
+    <div class="row">
+        {{-- <form action="{{ route('products.store') }}" class="form" method="POST"> --}}
+        {!! Form::open(['action'=>'productsController@store','files'=>'true', 'class'=>'form']) !!}
+        @csrf
+        <h2>AGREGAR PRODUCTOS</h2>
+        <p type="Nombre del Producto:">
+            <input type="text" value="{{ old('name') }}" name="name" class="@error('name') is-invalid @enderror" id=""
+                placeholder="Nombre del Porducto">
+        </p>
+
+        @error('name')
+        <p style="color: red;">
+            {{ $message }}
+        </p>
+        @enderror
+
+        <p type="Seleccione la categoria:">
+            <select name="category" id="" class="@error('category') is-invalid @enderror">
+                @if(old('category'))
+                <option value="{{ old('category') }}">{{ old('category') }}</option>
+                @else
+                <option>Seleccione una opcion</option>
+                @endif
+                <option value="Ortesis">Ortesis</option>
+                <option value="Ortesis inferior">Ortesis inferior</option>
+                <option value="Protesis Superior">Protesis Superior</option>
+                <option value="Protesis Inferior">Protesis Inferior</option>
+            </select>
+        </p>
+
+        @error('category')
+        <p style="color: red;">
+            {{ $message }}
+        </p>
+        @enderror
+
+        <p type="Precio:">
+            <input type="number" name="price" class="@error('price') is-invalid @enderror" id=""
+                value="{{ old('price') }}" placeholder="Precio">
+        </p>
+
+        @error('price')
+        <p style="color: red;">
+            {{ $message }}
+        </p>
+        @enderror
+
+        <p type="Seleccione una imagen">
+            <input type="file" name="photo" class="@error('photo') is-invalid @enderror" required accept="image/*"
+                value="{{ old('photo') }}" id="inFile">
+            <div class="image-preview" id="imagePreview">
+                <img src="" alt="Image Preview" class="image">
+                <span class="default-text">Image Preview</span>
+            </div>
+        </p>
+
+        @error('photo')
+        <p style="color: red;">
+            {{ $message }}
+        </p>
+        @enderror
+
+        <p type="Descripcion del producto">
+            <textarea name="description" id="" class="@error('description') is-invalid @enderror"
+                placeholder="Descripcion">
+                {{ old('description') }}
+            </textarea>
+        </p>
+
+        @error('description')
+        <p style="color: red;">
+            {{ $message }}
+        </p>
+        @enderror
+
+        <div class="move">
+            <button type="submit">Guardar</button>
+            <button type="submit">Cancelar</button>
+        </div>
+        {{-- </form> --}}
+        {!! Form::close() !!}
+    </div>
+</div>
+@endsection
+@section('js')
+<script src="{{ asset('inicio/js/imagePreview.js') }}"></script>
 @endsection
 @endauth
