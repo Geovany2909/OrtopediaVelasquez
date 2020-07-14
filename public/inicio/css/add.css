@@ -8,13 +8,15 @@
     justify-content: center;
     font-weight: bold;
     color: #cccccc;
+    margin: 0 auto;
+
 }
 
+
 .image{
-    display: none;
-    width: 50%;
-    height: 50%;
+    display: block;
 }
+
 
 #toggle{
     position: absolute;

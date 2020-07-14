@@ -17,7 +17,7 @@ class validateFormProducts extends FormRequest
         return [
             'name' => 'required|min:8|max:70|regex:/^[\pL\s\-]+$/u',
             'category' => 'required',
-            'price' => 'required|alpha_num',
+            'price' => 'required|regex:/^\d*(\.\d{2})?$/',
             'description' => 'required',
             'photo' => 'image',
         ];
@@ -31,7 +31,7 @@ class validateFormProducts extends FormRequest
             'name.max' => 'El :attribute debe contener maximo de 70 letras',
             'category.required' => 'El :attribute es obligatorio',
             'price.required' => 'El :attribute es obligatorio',
-            'price.alpha_num' => 'El :attribute es obligatorio',
+            'price.regex' => 'El formato del :attribute es invalido ',
             'description.required' => 'El :attribute es obligatorio',
             'photo.required' => 'El :attribute es obligatorio',
             'photo.mimes' => 'El :attribute debe de ser una imagen',

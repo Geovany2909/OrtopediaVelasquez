@@ -11,7 +11,7 @@ inpFile.addEventListener("change", function(){
 
         previewDefaultText.style.display = "none";
         previewImage.style.display = "block";
-
+        
         reader.addEventListener("load", function(){
             previewImage.setAttribute("src", this.result);
         });

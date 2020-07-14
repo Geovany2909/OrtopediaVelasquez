@@ -54,7 +54,7 @@ Crear Productos
                 @forelse ($users as $user)
                     @if ($user->id != auth()->user()->id)
                     <tr>
-                        <td><img src="/images/doctor.png" alt="" width="100"></td>
+                        <td><img src="/images/users/{{ $user->photo }}" alt="" width="150"></td>
                         <td> {{ $user->name }}</td>
                         <td>    {{ $user->email }}</td>
                         <td>{{ $user->created_at->diffForHumans()}}</td>

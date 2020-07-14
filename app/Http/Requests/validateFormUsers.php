@@ -15,7 +15,7 @@ class validateFormUsers extends FormRequest
     {
         return [
             'name' => 'required|regex:/^[\pL\s\-]+$/u|min:8|max:64',
-            'email' => 'regex:/^.+@.+$/i|required|unique:users,email',
+            'email' => 'required|unique:users,email|email',
             'password' => 'required|min:8',
             'repeat_password' => 'required|same:password|min:8',
             'photo' => 'image',
@@ -28,7 +28,7 @@ class validateFormUsers extends FormRequest
             'name.regex' => 'El :attribute debe ser solo letras',
             'name.min' => 'El :attribute debe de tener minimo 8 caracteres',
             'name.max' => 'El :attribute debe de tener maximo 64 caracteres',
-            'email.regex' => 'El formato del :attribute es invalido',
+            'email.email' => 'El formato del :attribute debe ser una dirección de correo válida.',
             'email.unique' => 'El email ya esta en uso',
             'email.required' => 'El :attribute es requerido',
             'password.required'=>'El :attribute es requerido',

@@ -21,8 +21,12 @@ Route::middleware(['guest'])->group(function () {
 });
 
 //ruta que sirve para ver la informacion del usuario logeado
-Route::get('admin/users/info', 'usersController@showInfoUser')->name('userInfo');
+Route::get('admin/users/info/{id}', function($id){
+    $user = User::findOrFail($id);
+    return view('admin.users.userInfo', compact('user'));
+})->name('userInfo');
 //
+Route::patch('admin/users/updateUserAuth/{id}', 'usersController@updateUserAuth')->name('updateUserAuth');
 Route::get('admin/products/galery', 'productsController@galery')->name('galery');
 
 Auth::routes(['verify' => true]);

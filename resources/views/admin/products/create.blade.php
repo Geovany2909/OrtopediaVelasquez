@@ -11,7 +11,6 @@ Crear Producto
 @section('content')
 <div class="col-md-12">
     <div class="row">
-        {{-- <form action="{{ route('products.store') }}" class="form" method="POST"> --}}
         {!! Form::open(['action'=>'productsController@store','files'=>'true', 'class'=>'form']) !!}
         @csrf
         <h2>AGREGAR PRODUCTOS</h2>
@@ -47,7 +46,7 @@ Crear Producto
         @enderror
 
         <p type="Precio:">
-            <input type="number" name="price" class="@error('price') is-invalid @enderror" id=""
+            <input type="text"  name="price" class="@error('price') is-invalid @enderror" id=""
                 value="{{ old('price') }}" placeholder="Precio">
         </p>
 
@@ -61,8 +60,8 @@ Crear Producto
             <input type="file" name="photo" class="@error('photo') is-invalid @enderror" required accept="image/*"
                 value="{{ old('photo') }}" id="inFile">
             <div class="image-preview" id="imagePreview">
-                <img src="" alt="Image Preview" class="image">
-                <span class="default-text">Image Preview</span>
+                <img src="" class="image" width="150">
+                <span class="default-text" style="margin: 0 auto;">Image Preview</span>
             </div>
         </p>
 
@@ -73,10 +72,8 @@ Crear Producto
         @enderror
 
         <p type="Descripcion del producto">
-            <textarea name="description" id="" class="@error('description') is-invalid @enderror"
-                placeholder="Descripcion">
-                {{ old('description') }}
-            </textarea>
+            <textarea name="description" class="@error('description') is-invalid @enderror"
+                rows="3">{{ old('description') }}</textarea>
         </p>
 
         @error('description')
@@ -89,7 +86,6 @@ Crear Producto
             <button type="submit">Guardar</button>
             <button type="submit">Cancelar</button>
         </div>
-        {{-- </form> --}}
         {!! Form::close() !!}
     </div>
 </div>

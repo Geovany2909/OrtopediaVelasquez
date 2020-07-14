@@ -13,7 +13,7 @@ Home
     <div class="col-md-4">
         <div class="card">
             <div class="user-img">
-                <img class="imagen" src="/images/{{ auth()->user()->photo ? auth()->user()->photo : 'doctor.png' }}"
+                <img class="imagen" src="/images/users/{{ auth()->user()->photo ? auth()->user()->photo : 'doctor.png' }}"
                     width="150" alt="">
             </div>
             <span class="user-name">{{ auth()->user()->name }}</span>
