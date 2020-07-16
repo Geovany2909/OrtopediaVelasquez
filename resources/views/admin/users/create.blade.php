@@ -51,9 +51,11 @@ Crear Usuario
         @enderror
 
         <p type="Ingrese contraseña">
-            <input type="password" id="password" class="@error('password') is-invalid @enderror" name="password"
-                placeholder="Ingrese contraseña">
-            <div id="toggle" onclick="showHide();"></div>
+            <div>
+                <input type="password" id="password" class="@error('password') is-invalid @enderror" name="password"
+                    placeholder="Ingrese contraseña">
+                <div id="toggle" onclick="showHide();"></div>
+            </div>
         </p>
 
         @error('password')
@@ -63,9 +65,11 @@ Crear Usuario
         @enderror
 
         <p type="Confirmar Contraseña:">
-            <input type="password" name="repeat_password" id="password2"
-                class="@error('repeat_password') is-invalid @enderror " placeholder="Confirme contraseña">
-            <div id="toggle2" onclick="showHide2();"></div>
+            <div>
+                <input type="password" name="repeat_password" id="password2"
+                    class="@error('repeat_password') is-invalid @enderror " placeholder="Confirme contraseña">
+                <div id="toggle2" onclick="showHide2();"></div>
+            </div>
         </p>
 
         @error('repeat_password')
