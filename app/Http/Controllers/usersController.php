@@ -8,6 +8,7 @@ use App\Http\Requests\validateFormUsers;
 use App\Http\Requests\validateUpdateFormUserAuth as validateAuthUser;
 use Carbon\Carbon;
 use App\Http\Requests\validateUpdateFormUserless as validateUserless;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,9 +20,11 @@ class usersController extends Controller
         Carbon::setLocale('es');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $name = $request->get('name');
         $users = User::simplePaginate(4);
+        $users = User::orderBy('id', 'DESC')->name($name)->simplePaginate();
         return view('admin.users.index', compact('users'));
     }
 

@@ -6,6 +6,8 @@ use App\Product;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\validateFormProducts;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class productsController extends Controller
 {
@@ -17,12 +19,16 @@ class productsController extends Controller
         Carbon::setlocale('es');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $name  = $request->get('name');
+        //$category = $request->get('category');
+
         $products = Product::simplePaginate(4);
-        $products->each(function ($products) {
-            $products->category;
-        });
+        $products = Product::orderBy('id', 'DESC')
+    		->name($name)
+    		->simplePaginate(4);
+
         return view('admin.products.index', compact('products'));
     }
 
@@ -51,6 +57,36 @@ class productsController extends Controller
     {
         $product = Product::findOrFail($id);
         return view('admin.products.destroy', compact('product'));
+    }
+    public function showOnlyProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.products.showOnlyProduct', compact('product'));
+    }
+
+    public function updateOnlyProduct(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $request->validate(
+            ['photo' => 'required|image']
+        );
+        $file = $request->file('photo');
+        $input = $request->only('photo');
+
+        if ($file) {
+            if ($product->photo) {
+                $name = $product->photo;
+                $dropFile = public_path() . "/images/products/" . $name;
+                unlink($dropFile);
+            }
+            $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
+            $img = \Image::make($file);
+            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
+            $input['photo'] = $temp_name;
+        }
+        $product->update($input);
+        Alert::success('Actualizado!', 'la imagen fue actualizada');
+        return redirect()->route('galery');
     }
 
     public function edit($id)
@@ -95,9 +131,13 @@ class productsController extends Controller
         return redirect('admin/products');
     }
 
-    public function galery()
+    public function galery(Request $request)
     {
-        $products = Product::all();
+        $name  = $request->get('name');
+        $products = Product::simplePaginate(4);
+        $products = Product::orderBy('id', 'DESC')
+    		->name($name)
+    		->simplePaginate(4);
         return view('admin.products.galery', compact('products'));
     }
     protected function random_string()

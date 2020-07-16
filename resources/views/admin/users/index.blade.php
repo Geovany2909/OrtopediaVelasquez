@@ -25,6 +25,13 @@ Crear Productos
     <h1>Dashboard</h1>
     <p>Usuarios Admin</p>
 </div>
+@section('buscar')
+    {{ Form::open(['route' => 'users.index', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" name="name">
+            <button type="submit" style="display: none">Buscar</button>
+    {{ Form::close() }}
+@endsection
 <div class="col-md-12">
     <div class="row">
         <table>

@@ -16,6 +16,7 @@
 
 <header>
     <div class="search-area">
+        @yield('buscar')
     </div>
     <div class="user-area">
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
