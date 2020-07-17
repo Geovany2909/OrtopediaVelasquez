@@ -13,6 +13,13 @@ Galery
     <p>Bienvenido a Ortopedia Velasquez Admin</p>
 </div>
 <main>
+    @section('buscar')
+        {{ Form::open(['route' => 'galery', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" name="name">
+        <button type="submit" style="display: none">Buscar</button>
+        {{ Form::close() }}
+    @endsection
     <div class="main-menu">
         @forelse ($products as $product)
         <a href="#">
