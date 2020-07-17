@@ -12,27 +12,26 @@ Editar Producto
 <div class="col-md-12">
     <div class="row">
         {!! Form::model($product,['method'=>'PATCH','action'=>['productsController@updateOnlyProduct',$product->id],'files'=>true, "class"=>"form"])!!}
-        @csrf
+            @csrf
+            <p type="Seleccione una imagen">
+                <input type="file" name="photo" id="inFile" accept="image/*"
+                    class="@error('photo') is-invalid @enderror">
+                <div class="image-preview" id="imagePreview">
+                    <img src="/images/products/{{ $product->photo ? $product->photo : '' }}" alt="Image Preview"
+                        width="200" class="image">
+                    <span style="display: none;" class="default-text">Sin foto actual</span>
+                </div>
 
-        <p type="Seleccione una imagen">
-            <input type="file" name="photo" id="inFile" accept="image/*"
-                class="@error('photo') is-invalid @enderror">
-            <div class="image-preview" id="imagePreview">
-                <img src="/images/products/{{ $product->photo ? $product->photo : '' }}" alt="Image Preview"
-                    width="200" class="image">
-                <span style="display: none;" class="default-text">Sin foto actual</span>
+            </p>
+            @error('photo')
+            <p style="color: red;">
+                {{ $message }}
+            </p>
+            @enderror
+            <div class="move">
+                <button type="submit">Editar</button>
+                <button type="button"><a href="{{ route('galery') }}">Cancelar</a></button>
             </div>
-
-        </p>
-        @error('photo')
-        <p style="color: red;">
-            {{ $message }}
-        </p>
-        @enderror
-        <div class="move">
-            <button type="submit">Editar</button>
-            <button type="submit"><a href="{{ route('products.index') }}">Cancelar</a></button>
-        </div>
         {!! Form::close() !!}
     </div>
 </div>

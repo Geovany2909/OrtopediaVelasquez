@@ -15,7 +15,7 @@ Editar Usuario
         @csrf
         <h2>EDITAR INFORMACION </h2>
         <p type="Nombre:">
-            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ $user->name }}"
+            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ old('name', $user->name) }}"
                 class="@error('name') is-invalid @enderror">
         </p>
 
@@ -26,7 +26,7 @@ Editar Usuario
         @enderror
 
         <p type="Email:">
-            <input name="email" value="{{ $user->email }}" style="background-color: rgb(243, 243, 243);"
+            <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
                 placeholder="Ingrese su correo.." class="@error('email') is-invalid @enderror">
         </p>
         @error('email')
@@ -46,7 +46,7 @@ Editar Usuario
         @enderror
 
         <p type="Seleccione una imagen">
-            <input type="file" name="photo" id="inFile" value="{{ old('name') }}" accept="image/*"
+            <input type="file" name="photo" id="inFile" accept="image/*"
                 class="@error('photo') is-invalid @enderror">
             <div class="image-preview" id="imagePreview">
                 <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Image Preview"

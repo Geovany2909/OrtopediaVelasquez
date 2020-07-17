@@ -23,8 +23,7 @@ class usersController extends Controller
     public function index(Request $request)
     {
         $name = $request->get('name');
-        $users = User::simplePaginate(4);
-        $users = User::orderBy('id', 'DESC')->name($name)->simplePaginate();
+        $users = User::orderBy('id', 'DESC')->name($name)->simplePaginate(4);
         return view('admin.users.index', compact('users'));
     }
 
@@ -63,6 +62,7 @@ class usersController extends Controller
         return view('admin.users.edit', compact('user'));
     }
 
+    //actualiza a usuarios no logeados
     public function update(validateUserless $request, $id)
     {
         $input = $request->only('name', 'email', 'photo');
@@ -114,6 +114,7 @@ class usersController extends Controller
 
 
 
+    //actualiza a el usuario  logeado
     public function updateUserAuth(validateAuthUser $request, $id)
     {
         $input = $request->only('name', 'email', 'photo');
@@ -122,7 +123,7 @@ class usersController extends Controller
         $users = User::findOrfail($id);
         /*/
         *
-        * Compueba que la contraseña insertada en el form
+        * Compueba que la contraseña del request
         *       es igual a la de la base de datos
         */
         if (Hash::check($pass, $credentials->getAuthPassword())) {

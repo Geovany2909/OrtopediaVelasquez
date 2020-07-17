@@ -22,10 +22,7 @@ class productsController extends Controller
     public function index(Request $request)
     {
         $name  = $request->get('name');
-        //$category = $request->get('category');
-
-        $products = Product::simplePaginate(4);
-        $products = Product::orderBy('id', 'DESC')
+        $products = Product::orderBy('id', 'ASC')
     		->name($name)
     		->simplePaginate(4);
 
@@ -61,6 +58,7 @@ class productsController extends Controller
     public function showOnlyProduct($id)
     {
         $product = Product::findOrFail($id);
+        $product->simplePaginate(4);
         return view('admin.products.showOnlyProduct', compact('product'));
     }
 
@@ -134,8 +132,7 @@ class productsController extends Controller
     public function galery(Request $request)
     {
         $name  = $request->get('name');
-        $products = Product::simplePaginate(4);
-        $products = Product::orderBy('id', 'DESC')
+        $products = Product::orderBy('id', 'ASC')
     		->name($name)
     		->simplePaginate(4);
         return view('admin.products.galery', compact('products'));

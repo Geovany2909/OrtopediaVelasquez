@@ -11,11 +11,11 @@ Editar Producto
 @section('content')
 <div class="col-md-12">
     <div class="row">
-        {!! Form::model($product,['method'=>'PATCH','action'=>['productsController@update',$product->id],'files'=>true, "class"=>"form"])!!}
+        {!! Form::model($product,['method'=>'PATCH','action'=>['productsController@update', $product->id],'files'=>true, "class"=>"form"])!!}
         @csrf
         <h2>EDITAR ESTE PRODUCTO</h2>
         <p type="Nombre del Producto:">
-            <input type="text" value="{{ $product->name }}" name="name" class="@error('name') is-invalid @enderror"
+            <input type="text" value="{{ old('name', $product->name) }}" name="name" class="@error('name') is-invalid @enderror"
                 id="" placeholder="Nombre del Porducto">
         </p>
 
@@ -27,7 +27,7 @@ Editar Producto
 
         <p type="Seleccione la categoria:">
             <select name="category" id="" class="@error('category') is-invalid @enderror">
-                <option value="{{ $product->category }}">{{ $product->category }}</option>
+                <option value="{{ old('category', $product->category) }}">{{old('category', $product->category)}}</option>
                 <option value="Ortesis">Ortesis</option>
                 <option value="Ortesis inferior">Ortesis inferior</option>
                 <option value="Protesis Superior">Protesis Superior</option>
@@ -43,7 +43,7 @@ Editar Producto
 
         <p type="Precio:">
             <input type="number" name="price" class="@error('price') is-invalid @enderror" id=""
-                value="{{ $product->price }}" placeholder="Precio">
+                value="{{ old('price', $product->price) }}" placeholder="Precio">
         </p>
 
         @error('price')
@@ -61,7 +61,7 @@ Editar Producto
         <p type="Descripcion del producto">
             <textarea name="description" id="" class="@error('description') is-invalid @enderror"
                 placeholder="Descripcion">
-                {{ $product->description }}
+                {{ old('description',  $product->description) }}
             </textarea>
         </p>
 
@@ -73,7 +73,7 @@ Editar Producto
 
         <div class="move">
             <button type="submit">Editar</button>
-            <button type="submit"><a href="{{ route('products.index') }}">Cancelar</a></button>
+            <button type="button"><a href="{{ route('products.index') }}">Cancelar</a></button>
         </div>
         {!! Form::close() !!}
     </div>

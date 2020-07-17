@@ -4,20 +4,7 @@
 Crear Productos
 @endsection
 @section('css')
-<style>
-    .pagination li {
-        vertical-align: top;
-        display: inline;
-        font-size: 1.2em;
-        padding: 0.5em;
-    }
-
-    li a {
-        color: #000;
-        width: 100%;
-        border-radius: 20%;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('inicio/css/paginate.css') }}">
 @endsection
 @section('content')
 <div class="heading">

@@ -1,0 +1,13 @@
+.pagination li {
+    vertical-align: top;
+    display: inline;
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+li a {
+    color: #000;
+    width: 100%;
+    background-color: thistle;
+    border-radius: 20%;
+}
