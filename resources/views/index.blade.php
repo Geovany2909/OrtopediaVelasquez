@@ -4,12 +4,11 @@
 Inicio
 @endsection
 @section('navbar')
+@guest
 <a href="{{ count($user) > 0 ? route('login') : route('register') }}">
     {{ count($user) > 0 ? '' : 'Registrar' }}
 </a>
-@auth
-<a href="{{ url('/admin/home') }}">Home</a>
-@endauth
+@endguest
 @endsection
 @section('content')
 
@@ -77,5 +76,8 @@ Inicio
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
 @endguest

@@ -14,7 +14,7 @@ Crear Productos
 @section('buscar')
 {{ Form::open(['route' => 'products.index', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
 <i class="fa fa-search" aria-hidden="true"></i>
-<input type="text" name="name" >
+<input type="text" name="name" placeholder="Buscar por nombre">
 <button type="submit" style="display: none">Buscar</button>
 {{ Form::close() }}
 @endsection
@@ -65,7 +65,7 @@ Crear Productos
                 </tr>
                 @empty
                 @section('empty')
-                <h2 class="color:red;"> No Hay productos</h2>
+                <h2 style="color: red; text-align: center;">En este momento no hay productos</h2>
                 @endsection
                 @endforelse
 

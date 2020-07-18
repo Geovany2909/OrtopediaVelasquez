@@ -39,14 +39,14 @@ class usersController extends Controller
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/users/' . $temp_name));
+            $img->resize(320, 240)->save(public_path('/images/users/' . $temp_name));
             $input['photo'] = $temp_name;
         }
         $password = $request->password;
         $input['password'] = bcrypt($password);
 
         User::create($input);
-        Alert::success('Agregado', 'El usuario se ha agregado correctamente');
+        Alert::success('Agregado!', 'El usuario se ha agregado correctamente');
         return redirect()->route('users.index');
     }
 
@@ -79,16 +79,15 @@ class usersController extends Controller
             $input['photo'] = $temp_name;
         }
         $users->update($input);
-        Alert::info('Actualizado', "El usuario $users->email ha sido actualizado exitosamente");
+        Alert::info('Actualizado!', "El usuario $users->email ha sido actualizado exitosamente");
         return redirect()->route('users.index');
     }
 
     public function destroy($id)
     {
         $users = User::findOrFail($id);
-        if ($users->photo) {
-            $originalRut = $users->photo;
-            $originalFile = public_path() . "/images/users/" . $originalRut;
+        if ($originalName = $users->photo) {
+            $originalFile = public_path() . "/images/users/" . $originalName;
             unlink($originalFile);
         }
         $users->delete();
@@ -112,8 +111,6 @@ class usersController extends Controller
         return $key;
     }
 
-
-
     //actualiza a el usuario  logeado
     public function updateUserAuth(validateAuthUser $request, $id)
     {
@@ -129,15 +126,14 @@ class usersController extends Controller
         if (Hash::check($pass, $credentials->getAuthPassword())) {
             //Verifica si hay una foto en el form y elimina la existente
             if ($file = $request->file('photo')) {
-                if ($users->photo) {
-                    $originalRout = $users->photo;
-                    $originalFile = public_path() . "/images/users/" . $originalRout;
+                if ($originalName  = $users->photo) {
+                    $originalFile = public_path() . "/images/users/" . $originalName;
                     unlink($originalFile);
                 }
 
                 $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
                 $img = \Image::make($file);
-                $img->resize(320, 240)->save(public_path('images/users/' . $temp_name));
+                $img->resize(320, 240)->save(public_path('/images/users/' . $temp_name));
                 $input['photo'] = $temp_name;
             }
             $users->update($input);

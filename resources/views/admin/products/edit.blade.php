@@ -52,12 +52,6 @@ Editar Producto
         </p>
         @enderror
 
-        @error('photo')
-        <p style="color: red;">
-            {{ $message }}
-        </p>
-        @enderror
-
         <p type="Descripcion del producto">
             <textarea name="description" id="" class="@error('description') is-invalid @enderror"
                 placeholder="Descripcion">

@@ -14,7 +14,7 @@ Crear Productos
 @section('buscar')
     {{ Form::open(['route' => 'users.index', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" name="name">
+            <input type="text" name="name" placeholder="Buscar por nombre">
             <button type="submit" style="display: none">Buscar</button>
     {{ Form::close() }}
 @endsection

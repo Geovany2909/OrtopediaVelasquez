@@ -9,7 +9,8 @@
         <a href="{{ route('users.index') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i>Admin
             Usuarios</a>
         <a href="{{ route('users.create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Agregar Usuarios</a>
-        <a href="{{ route('userInfo', auth()->user()->id) }}"><i class="fa fa-cog" aria-hidden="true"></i>Configuracion</a>
+        <a href="{{ route('userInfo', auth()->user()->id) }}"><i class="fa fa-cog"
+                aria-hidden="true"></i>Configuracion</a>
     </nav>
 </section>
 
@@ -21,10 +22,10 @@
     <div class="user-area">
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                <div class="user-img"></div>
-            </a>
         </form>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+            <div class="user-img"></div>
+        </a>
     </div>
 </header>

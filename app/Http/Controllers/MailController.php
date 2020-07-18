@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\validateContactForm as VcontactForm;
+use App\Http\Requests\validateContactForm as validateContact;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
-use RealRashid\SweetAlert\Facades\Alert;
-
 
 class MailController extends Controller
 {
@@ -16,7 +14,7 @@ class MailController extends Controller
         return view('contactenos');
     }
 
-    public function send(VcontactForm $request)
+    public function send(validateContact $request)
     {
         $data = array(
             'name'      =>  $request->input('name'),

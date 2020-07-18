@@ -92,7 +92,6 @@ Galery
             <hr>
             <div class="col-md-3" >
                 <span class="education">Precio</span>
-            </div>
             <div class="col-md-9">
                 <span style="font-size: 11px" class="schools">{{ $product->price }}</span>
             </div>

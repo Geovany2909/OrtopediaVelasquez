@@ -26,7 +26,7 @@
 
 </body>
 <script>
-    const lang = navigator.language;
+  const lang = navigator.language;
   let date = new Date();
 
   let dayNumber = date.getDate();

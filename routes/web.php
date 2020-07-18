@@ -1,8 +1,6 @@
 <?php
-
 use App\Product;
 use App\User;
-use RealRashid\SweetAlert\Facades\Alert;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
@@ -32,7 +30,9 @@ Route::get('admin/products/galery', 'productsController@galery')->name('galery')
 Route::get('admin/products/showOnlyProduct/{id}', 'productsController@showOnlyProduct')->name('showOnlyProduct');
 Route::patch('admin/products/updateOnlyProduct/{id}','productsController@updateOnlyProduct')->name('updateOnlyProduct');
 
+//hace que los usuarios verifiquen su identidad mediante el email
 Auth::routes(['verify' => true]);
+
 Route::get('admin/home', 'HomeController@index')->name('home');
 Route::resources([
     'admin/products' => 'productsController',

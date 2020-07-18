@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class validateFormProducts extends FormRequest
+class validateUpdateFormProducts extends FormRequest
 {
-
     public function authorize()
     {
         return true;
@@ -19,7 +18,6 @@ class validateFormProducts extends FormRequest
             'category' => 'required',
             'price' => 'required|regex:/^\d*(\.\d{2})?$/',
             'description' => 'required',
-            'photo' => 'required|image',
         ];
     }
     public function messages()
@@ -33,8 +31,6 @@ class validateFormProducts extends FormRequest
             'price.required' => 'El :attribute es obligatorio',
             'price.regex' => 'El formato del :attribute es invalido (ejemplo: 20.20)',
             'description.required' => 'El :attribute es obligatorio',
-            'photo.required' => 'El :attribute es obligatorio',
-            'photo.image' => 'El :attribute debe de ser solo tipo imagen',
 
         ];
     }
@@ -46,8 +42,6 @@ class validateFormProducts extends FormRequest
             'category' => 'Campo categoria',
             'price' => 'Campo precio',
             'description' => 'Campo descripcion',
-            'photo' => 'Campo foto',
-
         ];
     }
 }

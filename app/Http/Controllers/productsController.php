@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\validateFormProducts;
+use App\Http\Requests\validateFormProducts as createValidation;
+use App\Http\Requests\validateUpdateFormProducts as updateValidation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -23,8 +24,8 @@ class productsController extends Controller
     {
         $name  = $request->get('name');
         $products = Product::orderBy('id', 'ASC')
-    		->name($name)
-    		->simplePaginate(4);
+            ->name($name)
+            ->simplePaginate(4);
 
         return view('admin.products.index', compact('products'));
     }
@@ -35,13 +36,13 @@ class productsController extends Controller
     }
 
 
-    public function store(validateFormProducts $request)
+    public function store(createValidation $request)
     {
         $input = $request->all();
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
+            $img->resize(320, 240)->save(public_path('/images/products/' . $temp_name));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
@@ -54,6 +55,41 @@ class productsController extends Controller
     {
         $product = Product::findOrFail($id);
         return view('admin.products.destroy', compact('product'));
+    }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.products.edit', compact('product'));
+    }
+
+    public function update(updateValidation $request, $id)
+    {
+        $products = Product::findOrFail($id);
+        $input = $request->only('name', 'category', 'price', 'description');
+        $products->update($input);
+        Alert::info('exito', 'El producto ha sido actualizado');
+        return redirect()->route('products.index');
+    }
+
+    public function destroy($id)
+    {
+        $products = Product::findOrFail($id);
+        if ($products->photo) {
+            $name = $products->photo;
+            $dropFile = public_path() . "/images/products/" . $name;
+            unlink($dropFile);
+        }
+        $products->delete();
+        Alert::error('Eliminado', 'El producto se ha eliminado');
+        return redirect()->route('products.index');
+    }
+
+    public function galery(Request $request)
+    {
+        $name  = $request->get('name');
+        $products = Product::orderBy('id', 'ASC')->name($name)->simplePaginate(4);
+        return view('admin.products.galery', compact('products'));
     }
     public function showOnlyProduct($id)
     {
@@ -68,75 +104,25 @@ class productsController extends Controller
         $request->validate(
             ['photo' => 'required|image']
         );
-        $file = $request->file('photo');
         $input = $request->only('photo');
+        $file = $request->file('photo');
 
         if ($file) {
-            if ($product->photo) {
-                $name = $product->photo;
+            if ($name = $product->photo) {
                 $dropFile = public_path() . "/images/products/" . $name;
                 unlink($dropFile);
             }
+            
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
+            $img->resize(320, 240)->save(public_path('/images/products/' . $temp_name));
             $input['photo'] = $temp_name;
         }
         $product->update($input);
-        Alert::success('Actualizado!', 'la imagen fue actualizada');
+        Alert::success('Exito!', 'la imagen fue actualizada');
         return redirect()->route('galery');
     }
 
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
-        return view('admin.products.edit', compact('product'));
-    }
-
-    public function update(ValidateFormProducts $request, $id)
-    {
-        $products = Product::findOrFail($id);
-        $input = $request->all();
-
-        if ($file = $request->file('photo')) {
-            //verifica si anteriormente tiene una foto y procede a eliminarla para añadir una nueva
-            if ($products->photo) {
-                $name = $products->photo;
-                $dropFile = public_path() . "images/products/" . $name;
-                unlink($dropFile);
-            }
-            $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
-            $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/products/' . $temp_name));
-            $input['photo'] = $temp_name;
-        }
-
-        $products->update($input);
-        Alert::info('Actualizado', 'El producto ha sido actualizado');
-        return redirect()->route('products.index');
-    }
-
-    public function destroy($id)
-    {
-        $products = Product::findOrFail($id);
-        if ($products->photo) {
-            $name = $products->photo;
-            $dropFile = public_path() . "/images/products/" . $name;
-            unlink($dropFile);
-        }
-        $products->delete();
-        Alert::error('Eliminado', 'El producto se ha eliminado');
-        return redirect('admin/products');
-    }
-
-    public function galery(Request $request)
-    {
-        $name  = $request->get('name');
-        $products = Product::orderBy('id', 'ASC')
-    		->name($name)
-    		->simplePaginate(4);
-        return view('admin.products.galery', compact('products'));
-    }
     protected function random_string()
     {
         $key = '';

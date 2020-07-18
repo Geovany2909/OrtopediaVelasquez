@@ -17,7 +17,7 @@ Galery
     @section('buscar')
         {{ Form::open(['route' => 'galery', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
         <i class="fa fa-search" aria-hidden="true"></i>
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder="Buscar por nombre">
         <button type="submit" style="display: none"></button>
         {{ Form::close() }}
     @endsection
@@ -31,7 +31,7 @@ Galery
         </a>
         @empty
         @section('empty')
-        <h2 style="color: red; text-align: center;"> No hay productos</h2>
+        <h2 style="color: red; text-align: center;">En este momento no hay productos</h2>
         @endsection
         @endforelse
     </div>
