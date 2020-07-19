@@ -150,6 +150,23 @@ button{
     transition:all .3s;
 }
 
+.a{
+    padding:6px 20px;
+    text-decoration: none;
+    font-family:'Montserrat',sans-serif;
+    font-size: 15px;
+    border:2px solid #006992;
+    background:0;
+    color:#5a5a6e;
+    cursor:pointer;
+    transition:all .3s;
+}
+
+.a:hover{
+    background:#006992;
+    color:#fff
+}
+
 .move{
     margin-left: 30%;
 }

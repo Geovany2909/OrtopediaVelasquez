@@ -67,7 +67,7 @@ Editar Producto
 
         <div class="move">
             <button type="submit">Editar</button>
-            <button type="button"><a href="{{ route('products.index') }}">Cancelar</a></button>
+            <a class="a" href="{{ route('products.index') }}">Cancelar</a>
         </div>
         {!! Form::close() !!}
     </div>
