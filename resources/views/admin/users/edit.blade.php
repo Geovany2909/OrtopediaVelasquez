@@ -26,7 +26,7 @@ Editar Usuario
         @enderror
 
         <p type="Email:">
-            <input name="email" value="{{ old('email', $user->email) }}"  style="background-color: rgb(243, 243, 243);"
+            <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
                 placeholder="Ingrese su correo.." class="@error('email') is-invalid @enderror">
         </p>
         @error('email')
@@ -46,8 +46,7 @@ Editar Usuario
         @enderror
 
         <p type="Seleccione una imagen">
-            <input type="file" name="photo" id="inFile" accept="image/*"
-                class="@error('photo') is-invalid @enderror">
+            <input type="file" name="photo" id="inFile" accept="image/*" class="@error('photo') is-invalid @enderror">
             <div class="image-preview" id="imagePreview">
                 <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Image Preview"
                     width="200" class="image">
@@ -65,7 +64,7 @@ Editar Usuario
 
         <div class="move">
             <button type="submit">Guardar</button>
-            <button type="submit">Cancelar</button>
+            <button type="button"><a href="{{ route('products.index') }}">Cancelar</a></button>
         </div>
         {!! Form::close() !!}
     </div>

@@ -1,12 +1,52 @@
-@guest
 @extends('layouts.schema')
 @section('title')
 Contactenos
 @endsection
 @section('css')
+<style>
+
+</style>
 @endsection
 @section('content')
 <!--Contactanos-->
+<div class="section" style="display: flex; margin: 0 auto;">
+    <section class="about">
+        <div class="img2"></div>
+        <div class="cont2">
+            <h2 class="heading2">Contactanos</h2>
+            <form action="{{ route('sendEmail')}}" method="post" class="form"">
+                @csrf
+                <div class=" inputBx">
+                    <input value="{{ old('name') }}" type="text"  name="name" placeholder="Nombre completo">
+                    @error('name')
+                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="inputBx">
+                    <input value="{{ old('email') }}" type="text" name="email" placeholder="Correo Electronico">
+                    @error('email')
+                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="inputBx">
+                    <input value="{{ old('phone') }}" type="text" name="phone" placeholder="Telefono">
+                    @error('phone')
+                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="inputBx">
+                    <input value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario">
+                    @error('comment')
+                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="inputBx">
+                    <input type="submit" value="Enviar Ahora">
+                </div>
+            </form>
+    </div>
+</section>
+</div>
 <div class="section">
     <section class="cont">
         <h2 class="heading">Puedes comunicarte o encontrarnos en</h2>
@@ -37,33 +77,11 @@ Contactenos
         </div>
     </section>
 </div>
+@section('js')
+<script>
 
-<div class="section">
-    <section class="about">
-        <div class="img2"></div>
-        <div class="cont2">
-            <h2 class="heading2">Contactanos</h2>
-            <form action="{{ route('sendEmail')}}" method="post" class="form"">
-                @csrf
-                <div class=" inputBx">
-                        <input type="text" name="name" placeholder="Nombre completo">
-                </div>
-                <div class="inputBx">
-                    <input type="text" name="email" placeholder="Correo Electronico">
-                </div>
-                <div class="inputBx">
-                    <input type="text" name="phone" placeholder="Telefono">
-                </div>
-                <div class="inputBx">
-                    <textarea name="comment" placeholder="Comentario"></textarea>
-                </div>
-                <div class="inputBx">
-                    <input type="submit" name="" value="Enviar Ahora">
-                </div>
-
-        </form>
-</div>
-</section>
-</div>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
-@endguest
+@endsection
+

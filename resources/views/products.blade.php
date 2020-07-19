@@ -1,4 +1,3 @@
-@guest
 @extends('layouts.schema')
 @section('name')
 @endsection
@@ -32,51 +31,19 @@ Productos
 <!-- Productos -->
 <div class="section">
     <section class="prod">
-        <h2 class="heading">Productos de Ortopedia Velásquez</h2>
+        <h2 class="heading">Productos Disponibles</h2>
         <div class="container">
-            <div class="prodBx">
-                <div>
-                    <a href="#">
-                        <img src="{{ asset('inicio/img/2.jpg') }}" alt="">
-                    </a>
-                    <h2>Ortesis de cuello</h2>
+            @foreach ($products as $p)
+                <div class="prodBx">
+                    <div>
+                        <a href="#">
+                            <img src="/images/products/{{ $p->photo }}" >
+                        </a>
+                        <h2>Ortesis de cuello</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="prodBx">
-                <div>
-                    <a href="#">
-                        <img src="{{ asset('inicio/img/2.jpg') }}" alt="">
-                    </a>
-                    <h2>Ortesis de cuello</h2>
-                </div>
-            </div>
-            <div class="prodBx">
-                <div>
-                    <a href="#">
-                        <img src="{{ asset('inicio/img/2.jpg') }}" alt="">
-                    </a>
-                    <h2>Ortesis de cuello</h2>
-                </div>
-            </div>
-            <div class="prodBx">
-                <div>
-                    <a href="#">
-                        <img src="{{ asset('inicio/img/3.jpg') }}" alt="">
-                    </a>
-                    <h2>Ortesis del tronco</h2>
-                </div>
-            </div>
-            <div class="prodBx">
-                <div>
-                    <a href="">
-                        <img src="{{ asset('inicio/img/4.jpg') }}" alt="">
-                    </a>
-                    <h2>Ortesis miembro superior</h2>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </section>
 </div>
 @endsection
-@endguest

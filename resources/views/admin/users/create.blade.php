@@ -14,7 +14,7 @@ Crear Usuario
         @csrf
         <h2>AGREGAR USUARIOS</h2>
         <p type="Nombre:">
-            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ old('name') }}"
+            <input name="name" type="text" placeholder="Ingrese su nombre aquí.." value="{{ old('name') }}"
                 class="@error('name') is-invalid @enderror">
         </p>
 

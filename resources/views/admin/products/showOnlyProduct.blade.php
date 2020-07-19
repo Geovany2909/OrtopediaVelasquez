@@ -13,7 +13,8 @@ Editar Producto
     <div class="row">
         {!! Form::model($product,['method'=>'PATCH','action'=>['productsController@updateOnlyProduct',$product->id],'files'=>true, "class"=>"form"])!!}
             @csrf
-            <p type="Seleccione una imagen">
+
+            <p type="Si desea cambiar, Seleccione una imagen.">
                 <input type="file" name="photo" id="inFile" accept="image/*"
                     class="@error('photo') is-invalid @enderror">
                 <div class="image-preview" id="imagePreview">
@@ -29,7 +30,7 @@ Editar Producto
             </p>
             @enderror
             <div class="move">
-                <button type="submit">Editar</button>
+                <button type="submit" id="edit">Editar</button>
                 <button type="button"><a href="{{ route('galery') }}">Cancelar</a></button>
             </div>
         {!! Form::close() !!}

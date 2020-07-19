@@ -1,5 +1,9 @@
 <section id="sideMenu">
-    <h3 class="tittle">Ortopedia<span> Velasquez</span></h3>
+    <a class="ah" href="{{ route('inicio') }}" style="-webkit-tap-highlight-color: transparent;">
+        <h3 class="tittle">Ortopedia
+            <span> Velasquez</span>
+        </h3>
+    </a>
     <nav>
         <a href="{{ route('home') }}" class="active"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
         <a href="{{ route('products.index') }}"><i class="fa fa-folder-open" aria-hidden="true"></i>Admin Producto</a>
