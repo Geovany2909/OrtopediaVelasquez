@@ -19,25 +19,31 @@ Contactenos
                 <div class=" inputBx">
                     <input value="{{ old('name') }}" type="text"  name="name" placeholder="Nombre completo">
                     @error('name')
-                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                        <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     <input value="{{ old('email') }}" type="text" name="email" placeholder="Correo Electronico">
                     @error('email')
-                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                        <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     <input value="{{ old('phone') }}" type="text" name="phone" placeholder="Telefono">
                     @error('phone')
-                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                        <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     <input value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario">
                     @error('comment')
-                        <p style="color:red; font-size:14px;">{{ $message }}</p>
+                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="inputBx">
+                    {!! htmlFormSnippet() !!}
+                    @error('g-recaptcha-response')
+                        <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
