@@ -1,4 +1,3 @@
-@guest
 @extends('layouts.schema')
 @section('title')
 Inicio
@@ -80,4 +79,3 @@ Inicio
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
-@endguest

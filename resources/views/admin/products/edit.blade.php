@@ -13,7 +13,7 @@ Editar Producto
     <div class="row">
         {!! Form::model($product,['method'=>'PATCH','action'=>['productsController@update', $product->id],'files'=>true, "class"=>"form"])!!}
         @csrf
-        <h2>EDITAR ESTE PRODUCTO</h2>
+        <h2>EDITAR PRODUCTO</h2>
         <p type="Nombre del Producto:">
             <input type="text" value="{{ old('name', $product->name) }}" name="name" class="@error('name') is-invalid @enderror"
                 id="" placeholder="Nombre del Porducto">

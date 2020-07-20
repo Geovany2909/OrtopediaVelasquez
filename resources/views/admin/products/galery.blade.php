@@ -10,8 +10,7 @@ Galery
 
 @section('content')
 <div class="heading">
-    <h1>Dashboard</h1>
-    <p>Bienvenido a Ortopedia Velasquez Admin</p>
+    <h1>Dashboard/Galeria</h1>
 </div>
 <main>
     @section('buscar')
@@ -25,7 +24,7 @@ Galery
         @forelse ($products as $product)
         <a href="{{ route('showOnlyProduct', $product->id) }}">
             <div class="option">
-                <img class="imagen" src="/images/products/{{ $product->photo ? $product->photo : 'ortesis.jpg' }}" width="150" alt="">
+                <img class="imagen" src="/images/products/{{ $product->photo ? $product->photo : 'ortesis.jpg' }}" height="100" width="150" alt="">
                 <h2 >{{ $product->name }}</h2>
             </div>
         </a>

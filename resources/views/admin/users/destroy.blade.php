@@ -77,8 +77,7 @@ Galery
 
 @section('content')
 <div class="heading">
-    <h1>Dashboard</h1>
-    <p>Eliminar </p>
+    <h1>Dashboard/Eliminar</h1>
 </div>
 <div class="cards" style="margin-left: 30%; margin-top: 10%;">
     <div class="col-md-4">

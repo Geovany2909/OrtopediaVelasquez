@@ -42,7 +42,10 @@ class productsController extends Controller
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('/images/products/' . $temp_name));
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(public_path('/images/products/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
@@ -112,10 +115,13 @@ class productsController extends Controller
                 $dropFile = public_path() . "/images/products/" . $name;
                 unlink($dropFile);
             }
-            
+
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('/images/products/' . $temp_name));
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(public_path('/images/products/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         $product->update($input);

@@ -8,8 +8,7 @@ Crear Productos
 @endsection
 @section('content')
 <div class="heading">
-    <h1>Dashboard</h1>
-    <p>Productos Admin</p>
+    <h1>Dashboard/Productos</h1>
 </div>
 @section('buscar')
 {{ Form::open(['route' => 'products.index', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}

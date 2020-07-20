@@ -77,14 +77,13 @@ Galery
 
 @section('content')
 <div class="heading">
-    <h1>Dashboard</h1>
-    <p>Eliminar </p>
+    <h1>Dashboard/Eliminar</h1>
 </div>
 <div class="cards" style="margin-left: 30%; margin-top: 10%;">
     <div class="col-md-4">
         <div class="card" style="width: 200%; height: 50%;">
             <div class="user-img">
-                <img class="imagen" src="/images/products/{{ $product->photo ? $product->photo : 'doctor.png' }}"
+                <img class="imagen" src="/images/products/{{ $product->photo ? $product->photo : 'ortesis.jpg' }}"
                     width="150" alt="">
             </div>
             <span class="user-name">{{ $product->name }}</span>

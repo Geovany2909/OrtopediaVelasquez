@@ -77,7 +77,6 @@
 
 .prod .container .prodBx{
     position: relative;
-    background: #e7e2e2;
     width: 320px;
     height: 420px;
     display: flex;
@@ -86,7 +85,7 @@
 }
 
 .prod .container .prodBx img{
-    max-width: 80%;
+    max-width: 90%;
 }
 
 .prod .container .prodBx h2{
