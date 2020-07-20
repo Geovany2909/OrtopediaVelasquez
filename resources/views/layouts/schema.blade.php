@@ -10,10 +10,11 @@
 <title>@yield('title')</title>
 <link rel="stylesheet" href="{{ asset('inicio/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('inicio/css/footer.css') }}">
-@yield('css')
 <link rel="stylesheet" href="{{ asset('inicio/css/style.css') }}">
+@yield('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.min.css">
+{!! htmlScriptTagJsApi() !!}
 </head>
 
 <body>

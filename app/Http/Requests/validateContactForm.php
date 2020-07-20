@@ -16,7 +16,8 @@ class validateContactForm extends FormRequest
             'name'  =>  'required', 'regex:/^[\pL\s\-]+$/u|min:8|max:64',
             'email' =>  'required|email',
             'comment' =>  'required',
-            'phone' => 'required|alpha_num'
+            'phone' => 'required|alpha_num',
+            recaptchaFieldName() => recaptchaRuleName()
         ];
     }
     public function messages()
