@@ -75,7 +75,7 @@ Editar Usuario
 
         <div class="move">
             <button type="submit">Guardar</button>
-            <a class="a" href="{{ route('products.index') }}">Cancelar</a>
+            <a class="a" href="{{ route('home') }}">Cancelar</a>
         </div>
         {!! Form::close() !!}
     </div>

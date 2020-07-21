@@ -80,7 +80,7 @@ Crear Usuario
 
         <div class="move">
             <button type="submit">Guardar</button>
-            <button type="submit">Cancelar</button>
+            <a class="a" href="{{ route('home') }}">Cancelar</a>
         </div>
         {!! Form::close() !!}
     </div>

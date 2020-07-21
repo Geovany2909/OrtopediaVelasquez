@@ -39,7 +39,7 @@ Productos
                         <a href="#">
                             <img src="/images/products/{{ $p->photo }}" >
                         </a>
-                        <h2>Ortesis de cuello</h2>
+                        <h2>{{ $p->name }}</h2>
                     </div>
                 </div>
             @endforeach

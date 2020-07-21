@@ -31,7 +31,7 @@ Editar Producto
             @enderror
             <div class="move">
                 <button type="submit" id="edit">Editar</button>
-                <button type="button"><a href="{{ route('galery') }}">Cancelar</a></button>
+                <a class="a" href="{{ route('galery') }}">Cancelar</a>
             </div>
         {!! Form::close() !!}
     </div>

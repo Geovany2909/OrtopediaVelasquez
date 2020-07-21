@@ -84,7 +84,7 @@ Crear Producto
 
         <div class="move">
             <button type="submit">Guardar</button>
-            <button type="button"><a href="{{ route('products.index') }}">Cancelar</a></button>
+            <a class="a" href="{{ route('home') }}">Cancelar</a>
         </div>
         {!! Form::close() !!}
     </div>

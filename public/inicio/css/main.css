@@ -130,6 +130,7 @@ hr{
 .box{
     background: #f5f5f5;
     color: #115294;
+    cursor: pointer;
 }
 
 .box:hover{

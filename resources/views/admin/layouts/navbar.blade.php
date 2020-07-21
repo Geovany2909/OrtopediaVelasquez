@@ -1,5 +1,5 @@
 <section id="sideMenu">
-    <a class="ah" href="{{ route('inicio') }}" style="-webkit-tap-highlight-color: transparent;">
+    <a href="{{ route('inicio') }}" style="text-decoration: none">
         <h3 class="tittle">Ortopedia
             <span> Velasquez</span>
         </h3>
