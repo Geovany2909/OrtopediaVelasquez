@@ -6,6 +6,7 @@ use App\Http\Requests\validateContactForm as validateContact;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MailController extends Controller
 {
@@ -26,6 +27,7 @@ class MailController extends Controller
         $mail_to = "anonymousma4@gmail.com";
         Mail::to($mail_to)->send(new SendMail($data));
 
-        return redirect()->back()->withSuccess('Su informacion fue enviada correctamente');
+        Alert::success('Enviado', 'Su informacion fue enviada correctamente');
+        return redirect()->back();
     }
 }
