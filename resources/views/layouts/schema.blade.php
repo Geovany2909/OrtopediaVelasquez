@@ -22,7 +22,7 @@
     <div id="fullpage">
         <nav class="menu">
             <a href="{{ route('inicio') }}" class="active">Portada</a>
-            <a href="#">Saber mas</a>
+            <a href="{{ route('saberMas') }}">Saber mas</a>
             <a href="{{ route('galeryPrincipal') }}">Galeria</a>
             <a href="{{ route('products') }}">Productos</a>
             <a href="{{ route('contacts') }}">Contacto</a>

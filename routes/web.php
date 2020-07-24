@@ -16,6 +16,11 @@ Route::get('/products', function () {
     return view('products', compact('products', 'lastProduct'));
 })->name('products');
 
+Route::get('/products/image/{id}', function($id){
+    $viewOnlyProduct = Product::where('id', $id)->first();
+    return view('OnlyProduct', compact('viewOnlyProduct'));
+})->name('viewOnlyProduct');
+
 Route::get('/galery/{id?}', function(Request $request, $id = null){
     if($request->ajax()){
         $ajax = Product::where('id', $id)->first();
@@ -27,18 +32,21 @@ Route::get('/galery/{id?}', function(Request $request, $id = null){
 
 Route::get('/saberMas', function(){
     return view('saberMas');
-});
+})->name('saberMas');
 Route::get('/contacts', 'MailController@index')->name('contacts');
 Route::post('/send', 'MailController@send')->name('sendEmail');
 
 /****************************************************** */
 
-//ruta que sirve para ver la informacion del usuario logeado y editar
+
+/*********ruta que sirve para ver la informacion del usuario logeado y editar*******/
 Route::get('admin/users/info/{id}', function ($id) {
     $user = User::findOrFail($id);
     return view('admin.users.userInfo', compact('user'));
 })->name('userInfo');
 Route::patch('admin/users/updateUserAuth/{id}', 'usersController@updateUserAuth')->name('updateUserAuth');
+/*************************************************************/
+
 
 //Ruta de la galeria y sus procesos
 Route::get('admin/products/galery', 'productsController@galery')->name('galery');

@@ -9,7 +9,7 @@ Productos
 <div class="section">
     @if ($lastProduct)
     <section class="about">
-        <div class="img">
+        <div class="img" oncontextmenu="return false;">
             <img src="/images/products/{{ $lastProduct->photo }}" alt="casco">
         </div>
         <div class="cont">
@@ -18,7 +18,7 @@ Productos
                 {{ $lastProduct->description }}
             </p>
             <br>
-            <a href="#" class="btn btn3">MAS INFO</a>
+            <a href="{{ route('viewOnlyProduct', $lastProduct->id) }}" class="btn btn3">MAS INFO</a>
         </div>
     </section>
     @endif
@@ -32,7 +32,7 @@ Productos
             @foreach ($products as $p)
                 <div class="prodBx">
                     <div>
-                        <a href="#">
+                        <a href="javascript:void(0);" oncontextmenu="return false;">
                             <img src="/images/products/{{ $p->photo }}" >
                         </a>
                         <h2>{{ $p->name }}</h2>
