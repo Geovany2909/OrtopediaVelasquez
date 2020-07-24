@@ -15,8 +15,7 @@ Crear Producto
         @csrf
         <h2>AGREGAR PRODUCTOS</h2>
         <p type="Nombre del Producto:">
-            <input type="text" value="{{ old('name') }}" name="name" class="@error('name') is-invalid @enderror" id=""
-                placeholder="Nombre del Porducto">
+            <input type="text" value="{{ old('name') }}" name="name" placeholder="Nombre del Producto">
         </p>
 
         @error('name')
@@ -26,12 +25,8 @@ Crear Producto
         @enderror
 
         <p type="Seleccione la categoria:">
-            <select name="category" id="" class="@error('category') is-invalid @enderror">
-                @if(old('category'))
-                <option value="{{ old('category') }}">{{ old('category') }}</option>
-                @else
-                <option>Seleccione una opcion</option>
-                @endif
+            <select name="category">
+                <option value="{{ old('category', '')}}">{{ old('category',"Seleccione una categoria") }}</option>
                 <option value="Ortesis">Ortesis</option>
                 <option value="Ortesis inferior">Ortesis inferior</option>
                 <option value="Protesis Superior">Protesis Superior</option>
@@ -46,8 +41,7 @@ Crear Producto
         @enderror
 
         <p type="Precio:">
-            <input type="text"  name="price" class="@error('price') is-invalid @enderror" id=""
-                value="{{ old('price') }}" placeholder="Precio">
+            <input type="text"  name="price" value="{{ old('price') }}" placeholder="Precio">
         </p>
 
         @error('price')
@@ -57,8 +51,7 @@ Crear Producto
         @enderror
 
         <p type="Seleccione una imagen">
-            <input type="file" name="photo" class="@error('photo') is-invalid @enderror" required accept="image/*"
-                value="{{ old('photo') }}" id="inFile">
+            <input type="file" name="photo" required accept="image/*" value="{{ old('photo') }}" id="inFile">
             <div class="image-preview" id="imagePreview">
                 <img src="" class="image" width="150">
                 <span class="default-text" style="margin: 0 auto;">Image Preview</span>
@@ -72,8 +65,9 @@ Crear Producto
         @enderror
 
         <p type="Descripcion del producto">
-            <textarea name="description" class="@error('description') is-invalid @enderror"
-                rows="3">{{ old('description') }}</textarea>
+            <textarea name="description"rows="3">
+                {{ old('description') }}
+            </textarea>
         </p>
 
         @error('description')

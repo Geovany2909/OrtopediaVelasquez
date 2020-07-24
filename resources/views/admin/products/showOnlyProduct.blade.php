@@ -15,8 +15,7 @@ Editar Producto
             @csrf
 
             <p type="Si desea cambiar, Seleccione una imagen.">
-                <input type="file" name="photo" id="inFile" accept="image/*"
-                    class="@error('photo') is-invalid @enderror">
+                <input type="file" name="photo" id="inFile" accept="image/*">
                 <div class="image-preview" id="imagePreview">
                     <img src="/images/products/{{ $product->photo ? $product->photo : '' }}" alt="Image Preview"
                         width="200" class="image">

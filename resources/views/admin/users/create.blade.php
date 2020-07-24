@@ -14,8 +14,7 @@ Crear Usuario
         @csrf
         <h2>AGREGAR USUARIOS</h2>
         <p type="Nombre:">
-            <input name="name" type="text" placeholder="Ingrese su nombre aquí.." value="{{ old('name') }}"
-                class="@error('name') is-invalid @enderror">
+            <input name="name" type="text" placeholder="Ingrese su nombre aquí.." value="{{ old('name') }}">
         </p>
 
         @error('name')
@@ -26,8 +25,7 @@ Crear Usuario
 
         <br>
         <p type="Email:">
-            <input name="email" value="{{ old('email') }}" placeholder="Ingrese su correo.."
-                class="@error('email') is-invalid @enderror">
+            <input name="email" value="{{ old('email') }}" placeholder="Ingrese su correo..">
         </p>
         @error('email')
         <p style="color: red;">
@@ -36,8 +34,7 @@ Crear Usuario
         @enderror
 
         <p type="Seleccione una imagen">
-            <input type="file" name="photo" id="inFile" value="{{ old('name') }}" accept="image/*"
-                class="@error('photo') is-invalid @enderror">
+            <input type="file" name="photo" id="inFile" value="{{ old('photo') }}" accept="image/*">
             <div class="image-preview" id="imagePreview">
                 <img src=""  class="image" width="100">
                 <span class="default-text">Image Preview</span>
@@ -52,7 +49,7 @@ Crear Usuario
 
         <p type="Ingrese contraseña">
             <div>
-                <input type="password" id="password" class="@error('password') is-invalid @enderror" name="password"
+                <input type="password" id="password"  name="password"
                     placeholder="Ingrese contraseña">
                 <div id="toggle" onclick="showHide();"></div>
             </div>
@@ -66,8 +63,7 @@ Crear Usuario
 
         <p type="Confirmar Contraseña:">
             <div>
-                <input type="password" name="repeat_password" id="password2"
-                    class="@error('repeat_password') is-invalid @enderror " placeholder="Confirme contraseña">
+                <input type="password" name="repeat_password" id="password2" placeholder="Confirme contraseña">
                 <div id="toggle2" onclick="showHide2();"></div>
             </div>
         </p>

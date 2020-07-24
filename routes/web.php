@@ -1,6 +1,7 @@
 <?php
 use App\Product;
 use App\User;
+use Illuminate\Http\Request;
 
 /************Paginas Principales********************** */
 Route::get('/', function () {
@@ -11,12 +12,22 @@ Route::get('/', function () {
 
 Route::get('/products', function () {
     $products = Product::paginate(4);
-    return view('products', compact('products'));
+    $lastProduct = Product::latest()->first();
+    return view('products', compact('products', 'lastProduct'));
 })->name('products');
-Route::get('/galery', function(){
+
+Route::get('/galery/{id?}', function(Request $request, $id = null){
+    if($request->ajax()){
+        $ajax = Product::where('id', $id)->first();
+        return response()->json($ajax);
+    }
     $products = Product::all();
     return view('galeria', compact('products'));
 })->name('galeryPrincipal');
+
+Route::get('/saberMas', function(){
+    return view('saberMas');
+});
 Route::get('/contacts', 'MailController@index')->name('contacts');
 Route::post('/send', 'MailController@send')->name('sendEmail');
 

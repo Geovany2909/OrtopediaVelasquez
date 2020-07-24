@@ -15,8 +15,7 @@ Editar Usuario
         @csrf
         <h2>EDITAR INFORMACION </h2>
         <p type="Nombre:">
-            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ old('name', $user->name) }}"
-                class="@error('name') is-invalid @enderror">
+            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ old('name', $user->name) }}">
         </p>
 
         @error('name')
@@ -27,7 +26,7 @@ Editar Usuario
 
         <p type="Email:">
             <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
-                placeholder="Ingrese su correo.." class="@error('email') is-invalid @enderror">
+                placeholder="Ingrese su correo.." >
         </p>
         @error('email')
         <p style="color: red;">
@@ -36,8 +35,7 @@ Editar Usuario
         @enderror
 
         <p type="Confirmar Email:">
-            <input name="repeat_email" value="{{ old('repeat_email') }}" placeholder="Confirme su correo.."
-                class="@error('repeat_email') is-invalid @enderror">
+            <input name="repeat_email" value="{{ old('repeat_email') }}" placeholder="Confirme su correo..">
         </p>
         @error('repeat_email')
         <p style="color: red;">
@@ -46,8 +44,7 @@ Editar Usuario
         @enderror
 
         <p type="Seleccione una imagen">
-            <input type="file" name="photo" id="inFile" accept="image/*"
-                class="@error('photo') is-invalid @enderror">
+            <input type="file" name="photo" id="inFile" accept="image/*">
             <div class="image-preview" id="imagePreview">
                 <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Image Preview"
                     width="200" class="image">
@@ -63,8 +60,7 @@ Editar Usuario
         @enderror
 
         <p type="Confirme su contraseña actual">
-            <input type="password" id="password" class="@error('password') is-invalid @enderror" name="password"
-                placeholder="Confirme contraseña">
+            <input type="password" id="password"name="password" placeholder="Confirme contraseña">
             <div id="toggle" onclick="showHide();"></div>
         </p>
         @error('password')

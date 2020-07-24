@@ -15,8 +15,7 @@ Editar Producto
         @csrf
         <h2>EDITAR PRODUCTO</h2>
         <p type="Nombre del Producto:">
-            <input type="text" value="{{ old('name', $product->name) }}" name="name" class="@error('name') is-invalid @enderror"
-                id="" placeholder="Nombre del Porducto">
+            <input type="text" value="{{ old('name', $product->name) }}" name="name" placeholder="Nombre del Producto">
         </p>
 
         @error('name')
@@ -26,7 +25,7 @@ Editar Producto
         @enderror
 
         <p type="Seleccione la categoria:">
-            <select name="category" id="" class="@error('category') is-invalid @enderror">
+            <select name="category">
                 <option value="{{ old('category', $product->category) }}">{{old('category', $product->category)}}</option>
                 <option value="Ortesis">Ortesis</option>
                 <option value="Ortesis inferior">Ortesis inferior</option>
@@ -42,8 +41,7 @@ Editar Producto
         @enderror
 
         <p type="Precio:">
-            <input type="number" name="price" class="@error('price') is-invalid @enderror" id=""
-                value="{{ old('price', $product->price) }}" placeholder="Precio">
+            <input type="number" name="price" value="{{ old('price', $product->price) }}" placeholder="Precio">
         </p>
 
         @error('price')
@@ -53,8 +51,7 @@ Editar Producto
         @enderror
 
         <p type="Descripcion del producto">
-            <textarea name="description" id="" class="@error('description') is-invalid @enderror"
-                placeholder="Descripcion">
+            <textarea name="description" placeholder="Descripcion">
                 {{ old('description',  $product->description) }}
             </textarea>
         </p>

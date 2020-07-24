@@ -35,17 +35,15 @@ class productsController extends Controller
         return view('admin.products.create');
     }
 
-
     public function store(createValidation $request)
     {
         $input = $request->all();
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(400, 400, function ($constraint) {
+            $img->resize(400, null, function ($constraint) {
                 $constraint->aspectRatio();
-            });
-            $img->save(public_path('/images/products/'. $temp_name ));
+            })->save(public_path('/images/products/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
@@ -71,7 +69,7 @@ class productsController extends Controller
         $products = Product::findOrFail($id);
         $input = $request->only('name', 'category', 'price', 'description');
         $products->update($input);
-        Alert::info('exito', 'El producto ha sido actualizado');
+        Alert::info('Exito!', 'El producto ha sido actualizado');
         return redirect()->route('products.index');
     }
 
@@ -84,7 +82,7 @@ class productsController extends Controller
             unlink($dropFile);
         }
         $products->delete();
-        Alert::error('Eliminado', 'El producto se ha eliminado');
+        Alert::error('Exito!', 'El producto se ha eliminado');
         return redirect()->route('products.index');
     }
 
@@ -118,10 +116,9 @@ class productsController extends Controller
 
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(400, 400, function ($constraint) {
+            $img->resize(400, null, function ($constraint) {
                 $constraint->aspectRatio();
-            });
-            $img->save(public_path('/images/products/'. $temp_name ));
+            })->save(public_path('/images/products/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         $product->update($input);

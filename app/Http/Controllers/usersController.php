@@ -39,7 +39,9 @@ class usersController extends Controller
         if ($file = $request->file('photo')) {
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('/images/users/' . $temp_name));
+            $img->resize(150, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path('/images/users/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         $password = $request->password;
@@ -75,7 +77,9 @@ class usersController extends Controller
             }
             $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
             $img = \Image::make($file);
-            $img->resize(320, 240)->save(public_path('images/' . $temp_name));
+            $img->resize(150, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path('/images/users/'. $temp_name ));
             $input['photo'] = $temp_name;
         }
         $users->update($input);
@@ -133,12 +137,14 @@ class usersController extends Controller
 
                 $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
                 $img = \Image::make($file);
-                $img->resize(320, 240)->save(public_path('/images/users/' . $temp_name));
+                $img->resize(150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save(public_path('/images/users/'. $temp_name ));
                 $input['photo'] = $temp_name;
             }
             $users->update($input);
             Alert::info('Actualizado', "El usuario $users->email ha sido actualizado exitosamente");
-            return redirect()->route('users.index');
+            return redirect()->route('home');
         } else {
             toast('Contraseña Incorrecta','warning')->timerProgressBar()->position('center');
             return redirect()->route('userInfo', $users->id);
