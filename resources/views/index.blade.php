@@ -25,7 +25,6 @@ Inicio
 <div class="section">
     <div class="informacion">
         <div class="title">
-            <p>Ortopedia Velasquez</p>
             <p>Estamos comprometidos con tu bienestar!!</p>
         </div>
         <div class="box">
