@@ -24,7 +24,7 @@ class MailController extends Controller
             'comment' => $request->input('comment'),
         );
 
-        $mail_to = "anonymousma4@gmail.com";
+        $mail_to = "ramosmatthew00@gmail.com";
         Mail::to($mail_to)->send(new SendMail($data));
 
         Alert::success('Enviado', 'Su informacion fue enviada correctamente');

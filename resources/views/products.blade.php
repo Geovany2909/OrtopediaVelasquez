@@ -9,16 +9,18 @@ Productos
 <div class="section">
     @if ($lastProduct)
     <section class="about">
-        <div class="img" oncontextmenu="return false;">
-            <img src="/images/products/{{ $lastProduct->photo }}" alt="casco">
-        </div>
-        <div class="cont">
-            <h2 class="heading">{{ $lastProduct->name }}</h2>
-            <p class="txt">
-                {{ $lastProduct->description }}
-            </p>
-            <br>
-            <a href="{{ route('viewOnlyProduct', $lastProduct->id) }}" class="btn btn3">MAS INFO</a>
+        <div class="row">
+            <div class="col-2" oncontextmenu="return false;">
+                <img src="/images/products/{{ $lastProduct->photo }}" alt="casco">
+            </div>
+            <div class="col-2">
+                <h2 class="heading">{{ $lastProduct->name }}</h2>
+                <p class="txt">
+                    {{ $lastProduct->description }}
+                </p>
+                <br>
+                <a href="{{ route('viewOnlyProduct', $lastProduct->id) }}" class="btn btn3">MAS INFO</a>
+            </div>
         </div>
     </section>
     @endif
