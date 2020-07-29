@@ -1,7 +1,9 @@
 <?php
+
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /************Paginas Principales********************** */
 Route::get('/', function () {
@@ -10,19 +12,31 @@ Route::get('/', function () {
     return view('index', compact('product', 'user'));
 })->name('inicio');
 
-Route::get('/products', function () {
-    $products = Product::paginate(4);
+Route::get('/products', function (Request $request) {
+    if($request->ajax()){
+        $ajax = Product::all();
+        return response()->json($ajax);
+    }
     $lastProduct = Product::latest()->first();
-    return view('products', compact('products', 'lastProduct'));
+
+    $products = Product::all();
+    return view('products', compact('products', 'lastProduct'))->render();
+});
+Route::get('/products/{category?}', function (Request $request, $category = null) {
+    if ($request->ajax()) {
+        $ajax = Product::where('category', $category)->get();
+        return response()->json($ajax);
+    }
 })->name('products');
 
-Route::get('/products/image/{id}', function($id){
+
+Route::get('/products/image/{id}', function ($id) {
     $viewOnlyProduct = Product::where('id', $id)->first();
     return view('OnlyProduct', compact('viewOnlyProduct'));
 })->name('viewOnlyProduct');
 
-Route::get('/galery/{id?}', function(Request $request, $id = null){
-    if($request->ajax()){
+Route::get('/galery/{id?}', function (Request $request, $id = null) {
+    if ($request->ajax()) {
         $ajax = Product::where('id', $id)->first();
         return response()->json($ajax);
     }
@@ -30,7 +44,7 @@ Route::get('/galery/{id?}', function(Request $request, $id = null){
     return view('galeria', compact('products'));
 })->name('galeryPrincipal');
 
-Route::get('/saberMas', function(){
+Route::get('/saberMas', function () {
     return view('saberMas');
 })->name('saberMas');
 Route::get('/contacts', 'MailController@index')->name('contacts');

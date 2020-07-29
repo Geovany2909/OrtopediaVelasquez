@@ -8,6 +8,7 @@
 
     <title>Dashboard - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('inicio/css/dashboard.css') }}">
+    <link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
     @yield('css')
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"

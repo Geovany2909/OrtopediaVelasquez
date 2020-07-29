@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('inicio/css/login.css') }}">
+    <link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
     <title>Register</title>
 </head>
@@ -32,7 +33,8 @@
                         @enderror
 
                         <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo">
+                            value="{{ old('email') }}" value="{{ old('email') }}" required autocomplete="email"
+                            autofocus placeholder="Correo">
                         @error('email')
                         <p style="color: red;">
                             {{ $message }}
@@ -47,8 +49,8 @@
                         </p>
                         @enderror
 
-                        <input id="password-confirm" type="password" class="" name="password_confirmation"
-                            required autocomplete="new-password" placeholder="Confirmar contraseña">
+                        <input id="password-confirm" type="password" class="" name="password_confirmation" required
+                            autocomplete="new-password" placeholder="Confirmar contraseña">
 
                         <input style="margin-left: 30%;" type="submit" value="{{ __('Register') }}">
                         <p class="signup">Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesion</a></p>

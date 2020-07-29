@@ -13,6 +13,7 @@ function fun_galery(id) {
     });
 }
 
+
 function modal() {
     let modal = document.getElementById("tvesModal");
     let span = document.getElementsByClassName("close")[0];

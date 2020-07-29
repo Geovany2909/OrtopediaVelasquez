@@ -11,9 +11,50 @@
 <link rel="stylesheet" href="{{ asset('inicio/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('inicio/css/footer.css') }}">
 <link rel="stylesheet" href="{{ asset('inicio/css/style.css') }}">
+<link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
 @yield('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.min.css">
+<style>
+    .dropbtn {
+        background-color: white;
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+
+</style>
 {!! htmlScriptTagJsApi() !!}
 </head>
 
@@ -35,13 +76,7 @@
         @include('layouts.footer')
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.extensions.min.js"></script>
 @yield('js')
-<script>
-    var fp = new fullpage('#fullpage',{
-        navigation: true,
-    });
-</script>
 @include('sweetalert::alert')
 
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('inicio/css/login.css') }}">
+    <link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
     <title>Login</title>
 </head>
@@ -44,7 +45,7 @@
                         <a href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
-                    @endif
+                        @endif
                     </form>
                 </div>
             </div>
