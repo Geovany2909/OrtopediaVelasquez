@@ -9,6 +9,8 @@ use App\Http\Requests\validateUpdateFormProducts as updateValidation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Validator;
+use Response;
 
 class productsController extends Controller
 {
@@ -43,7 +45,7 @@ class productsController extends Controller
             $img = \Image::make($file);
             $img->resize(400, null, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save(public_path('/images/products/'. $temp_name ));
+            })->save(public_path('/images/products/' . $temp_name));
             $input['photo'] = $temp_name;
         }
         Product::create($input);
@@ -92,38 +94,51 @@ class productsController extends Controller
         $products = Product::orderBy('id', 'ASC')->name($name)->simplePaginate(4);
         return view('admin.products.galery', compact('products'));
     }
-    public function showOnlyProduct($id)
+    public function showOnlyProduct(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
-        $product->simplePaginate(4);
-        return view('admin.products.showOnlyProduct', compact('product'));
+        if ($request->ajax()) {
+            $product = Product::findOrFail($id);
+            return response()->json($product, 200);
+        }
     }
 
     public function updateOnlyProduct(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
-        $request->validate(
-            ['photo' => 'required|image']
-        );
-        $input = $request->only('photo');
-        $file = $request->file('photo');
-
-        if ($file) {
-            if ($name = $product->photo) {
-                $dropFile = public_path() . "/images/products/" . $name;
-                unlink($dropFile);
+        if($request->has('photo')){
+            $validator = Validator::make($request->all(), [
+                'photo' => 'image',
+            ]);
+            if ($validator->fails()) {
+                return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
             }
+            else
+            {
+                $input = $request->only('photo');
+                $product = Product::findOrFail($id);
+                $file = $request->file('photo');
 
-            $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
-            $img = \Image::make($file);
-            $img->resize(400, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('/images/products/'. $temp_name ));
-            $input['photo'] = $temp_name;
+                if ($file) {
+                    if ($name = $product->photo) {
+                        $dropFile = public_path() . "/images/products/" . $name;
+                        unlink($dropFile);
+                    }
+
+                    $temp_name = $this->random_string() . '.' . $file->getClientOriginalExtension();
+                    $img = \Image::make($file);
+                    $img->resize(400, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save(public_path('/images/products/' . $temp_name));
+                    $input['photo'] = $temp_name;
+                }
+                $product->update($input);
+                //return response()->json($product);
+                Alert::success('Exito!', 'la imagen fue actualizada');
+                return redirect()->route('galery');
+            }
+        }else{
+            alert::info("Info", "No se selecciono ningun archivo");
+            return redirect()->route('galery');
         }
-        $product->update($input);
-        Alert::success('Exito!', 'la imagen fue actualizada');
-        return redirect()->route('galery');
     }
 
     protected function random_string()

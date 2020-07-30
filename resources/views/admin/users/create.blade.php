@@ -36,8 +36,8 @@ Crear Usuario
         <p type="Seleccione una imagen">
             <input type="file" name="photo" id="inFile" value="{{ old('photo') }}" accept="image/*">
             <div class="image-preview" id="imagePreview">
-                <img src=""  class="image" width="100">
-                <span class="default-text">Image Preview</span>
+                <img src="" class="image" width="100">
+                <span class="default-text">Vista Imagen</span>
             </div>
         </p>
 
@@ -49,9 +49,8 @@ Crear Usuario
 
         <p type="Ingrese contraseña">
             <div>
-                <input type="password" id="password"  name="password"
-                    placeholder="Ingrese contraseña">
-                <div id="toggle" onclick="showHide();"></div>
+                <input type="password" id="password" name="password" placeholder="Ingrese contraseña">
+                <span toggle="#password-field" id="togglePassword" class="fa fa-fw fa-eye field-icon"></span>
             </div>
         </p>
 
@@ -63,8 +62,8 @@ Crear Usuario
 
         <p type="Confirmar Contraseña:">
             <div>
-                <input type="password" name="repeat_password" id="password2" placeholder="Confirme contraseña">
-                <div id="toggle2" onclick="showHide2();"></div>
+                <input type="password" name="repeat_password" id="password1" placeholder="Confirme contraseña">
+                <span toggle="#password-field" id="togglePassword1" class="fa fa-fw fa-eye field-icon"></span>
             </div>
         </p>
 

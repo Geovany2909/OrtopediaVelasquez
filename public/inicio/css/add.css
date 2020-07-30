@@ -18,40 +18,6 @@
 }
 
 
-#toggle{
-    position: absolute;
-    top: 76%;
-    left: 90%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background: url(../img/show.png);
-    background-size: cover;
-    cursor: pointer;
-}
-
-#toggle.hide{
-    background: url(../img/hide.png);
-    background-size: cover;
-}
-
-#toggle2{
-    position: absolute;
-    top: 86.5%;
-    left: 90%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background: url(../img/show.png);
-    background-size: cover;
-    cursor: pointer;
-}
-
-#toggle2.hide2{
-    background: url(../img/hide.png);
-    background-size: cover;
-}
-
 /* prueba */
 .form{
     width:70%;
@@ -178,4 +144,12 @@ button:hover{
 
 span{
     margin:0 5px 0 15px
+}
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
 }

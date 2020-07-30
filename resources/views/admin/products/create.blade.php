@@ -8,6 +8,7 @@ Crear Producto
 @section('css')
 <link rel="stylesheet" href="{{ asset('inicio/css/add.css') }}">
 @endsection
+
 @section('content')
 <div class="col-md-12">
     <div class="row">
