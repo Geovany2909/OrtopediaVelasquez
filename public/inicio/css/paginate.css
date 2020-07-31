@@ -5,7 +5,7 @@
     padding: 0.5em;
 }
 
-li a {
+.pagination li a {
     color: #000;
     width: 100%;
     background-color: thistle;
