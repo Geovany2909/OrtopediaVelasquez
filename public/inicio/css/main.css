@@ -14,44 +14,61 @@ body{
     background-repeat: no-repeat;
 }
 
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
 nav{
+    flex: 1;
     text-align: center;
-    padding: 5px;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
     z-index: 99;
 }
 
-nav > a{
+nav ul{
     display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+li a{
     text-decoration: none;
-    padding: 15px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    box-sizing: border-box;
     color: #061B3A;
     font-size: 1.2rem;
     border: 1px solid transparent;
     font-family: 'Poppins';
+    padding: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
-nav > a:hover{
+li a:hover{
     transition: all ease 0.3s;
     color:#115294;
     border-bottom: 2px solid #115294;
 }
 
-nav > a.active{
+li a.active{
     transition: all ease 0.3s;
     color:#115294;
     border-bottom: 2px solid #115294;
+}
+
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .bienvenida{
     width: 50%;
-    padding: 25px;
+    padding: 35px;
     box-sizing: border-box;
     margin: auto;
     text-align: center;
@@ -96,6 +113,7 @@ hr{
 .informacion{
     width: 90%;
     margin: auto;
+    margin-top: 25px;
     height: 80vh;
 }
 
@@ -113,6 +131,12 @@ hr{
     color: #abcc00;
     font-family: 'Lato';
     font-size: 1.5rem;
+}
+
+.menu-icon{
+    width: 28px;
+    margin-left: 20px;
+    display: none;
 }
 
 .box{
@@ -167,4 +191,42 @@ hr{
 
 .box-p:nth-child(2n){
     background: #115294;
+}
+
+@media only screen and (max-width: 890px){
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #fff;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    nav ul li a{
+        color: #061B3A;
+    }
+
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .row{
+        text-align: center;
+    }
+
+    .col-2, .col-3, .col-4{
+        flex-basis: 100%;
+    }
 }

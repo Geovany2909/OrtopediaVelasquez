@@ -14,67 +14,47 @@
 <link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
 @yield('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<style>
-    .dropbtn {
-        background-color: white;
-        color: black;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-
-</style>
 {!! htmlScriptTagJsApi() !!}
 </head>
 
 <body>
-
-    <div id="fullpage">
-        <nav class="menu">
-            <a href="{{ route('inicio') }}" class="active">Portada</a>
-            <a href="{{ route('saberMas') }}">Saber mas</a>
-            <a href="{{ route('galeryPrincipal') }}">Galeria</a>
-            <a href="{{ route('products') }}">Productos</a>
-            <a href="{{ route('contacts') }}">Contacto</a>
-            @yield('navbar')
-            @auth
-            <a href="{{ route('home') }}">Home</a>
-            @endauth
-        </nav>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="{{ route('inicio') }}" class="active">Portada</a></li>
+                        <li><a href="{{ route('saberMas') }}">Saber mas</a></li>
+                        <li><a href="{{ route('galeryPrincipal') }}">Galeria</a></li>
+                        <li><a href="{{ route('products') }}">Productos</a></li>
+                        <li><a href="{{ route('contacts') }}">Contacto</a></li>
+                        <li>
+                            @yield('navbar')
+                            @auth
+                            <a href="{{ route('home') }}">Home</a>
+                            @endauth
+                        </li>
+                    </ul>
+                </nav>
+            <img src="{{asset('inicio/img/menu.png')}}" alt="" class="menu-icon" onclick="menutoggle()">
+            </div>
         @yield('content')
         @include('layouts.footer')
-    </div>
+
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle() {
+                if (MenuItems.style.maxHeight == "0px") {
+                    MenuItems.style.maxHeight = "200px";
+                }
+                else{
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+        </script>
 </body>
 @yield('js')
 @include('sweetalert::alert')

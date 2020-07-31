@@ -11,14 +11,16 @@ Inicio
 @endsection
 @section('content')
 
-<div class="section">
-    <div class="bienvenida">
-        <img src="img/logo.png" alt="">
-        <p> <span>Ortopedia</span> Velasquez </p>
-        <hr>
-        <p> Carrer de l'Engenier José Sirera 2 Avenida Cr Tomás Sala con Calle Soria. 46017 València Valencia</p>
-        <hr>
-        <p> 960 05 57 68</p>
+        <div class="section">
+            <div class="bienvenida">
+                <img src="img/logo.png" alt="">
+                <p> <span>Ortopedia</span> Velasquez </p>
+                <hr>
+                <p> Carrer de l'Engenier José Sirera 2 Avenida Cr Tomás Sala con Calle Soria. 46017 València Valencia</p>
+                <hr>
+                <p> 960 05 57 68</p>
+            </div>
+        </div>
     </div>
 </div>
 

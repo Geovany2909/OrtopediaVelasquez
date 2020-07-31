@@ -153,3 +153,17 @@ span{
     position: relative;
     z-index: 2;
 }
+
+
+/* PRUEBA */
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-2{
+    flex-basis: 45%;
+    min-width: 300px;
+}
