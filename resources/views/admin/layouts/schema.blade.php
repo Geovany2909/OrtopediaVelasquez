@@ -8,6 +8,7 @@
 
     <title>Dashboard - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('inicio/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('inicio/css/navbar.css') }}">
     <link rel="shortcut icon" href="{{ asset('inicio/img/logo.png') }}">
     @yield('css')
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
@@ -40,6 +41,14 @@
   document.getElementById('dayName').innerHTML = dayName;
   document.getElementById('dayNumber').innerHTML = dayNumber;
   document.getElementById('year').innerHTML = year;
+</script>
+<script>
+    function toggleMenu(){
+      let navigation = document.querySelector('.navigation');
+      let toggle = document.querySelector('.toggle');
+      navigation.classList.toggle("active");
+      toggle.classList.toggle("active");
+    }
 </script>
 @yield('js')
 @include('sweetalert::alert')

@@ -64,7 +64,7 @@ Crear Productos
                 </tr>
                 @empty
                 @section('empty')
-                <h2 style="color: red; text-align: center;">En este momento no hay productos</h2>
+                <h2 style="color: red;text-align: center;margin-right: 20%;">En este momento no hay productos</h2>
                 @endsection
                 @endforelse
 

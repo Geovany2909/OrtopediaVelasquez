@@ -3,7 +3,7 @@
     --purpleDark: #242332;
     --greenNeon: #6FA61C;
     --green: #abcc00;
-    --greyLight: #EDEFF3;
+    --greyLight: #f6f6f6;
     --greyDark: #B0AFB5;
     --greyLightF: #BBC1CD;
     --greyLightF2: #A5ADBD;
@@ -21,84 +21,24 @@
     --purple: #744BCE;
 }
 
-* {
-    box-sizing: border-box;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 }
+
 
 body {
-    margin: 0;
-    padding: 0;
     background: var(--greyLight);
-    font-family: 'Montserrat', sans-serif;
-}
-
-#sideMenu {
-    background: var(--purpleLigth);
-    width: 280px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-}
-
-#sideMenu nav {
-    padding-top: 50px;
-}
-
-.tittle {
-    color: #fff;
-    margin: 15px;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.tittle span {
-    color: #19B3D3;
-}
-
-#sideMenu nav a {
-    display: block;
-    color: var(--greyDark);
-    text-decoration: none;
-    padding: 15px 30px;
-    font-weight: 300;
-    transition: all .3s ease-in-out;
-}
-
-#sideMenu nav a:hover {
-    background: var(--purpleDark);
-    border-left: 5px solid var(--greenNeon);
-    padding: 15px 30px 15px 25px;
-}
-
-#sideMenu nav a:hover .fa {
-    color: var(--greenNeon);
-}
-
-#sideMenu nav a.active {
-    background: var(--purpleDark);
-    border-left: 5px solid var(--greenNeon);
-    padding: 15px 30px 15px 25px;
-}
-
-#sideMenu nav a.active .fa {
-    color: var(--greenNeon);
-}
-
-nav .fa {
-    color: var(--greyDark);
-    font-size: 1.4rem;
-    margin-right: .8rem;
-    display: inline-block;
-    width: 30px;
-    position: relative;
-    top: 2px;
+    min-height: 100vh;
 }
 
 header {
-    margin-left: 280px;
+    margin-left: 50px;
     padding: 20px;
     background: var(--white);
+    height: 60px;
 }
 
 header .search-area {
@@ -107,7 +47,8 @@ header .search-area {
 }
 
 header .search-area .fa {
-    color: var(--greyDark);
+    text-align: center;
+    margin-left: 150px;
 }
 
 header .search-area input[type="text"] {
@@ -117,7 +58,8 @@ header .search-area input[type="text"] {
     color: var(--greenNeon);
     padding: 10px;
     font-weight: 100;
-    width: 75%;
+    margin-left: 20%;
+    width: 60%;
     transition: all .5s ease-in-out;
 }
 
@@ -130,8 +72,6 @@ header .user-area {
     float: right;
     padding: 10px;
 }
-
-
 
 header .user-area a {
     display: inline-block;
@@ -260,6 +200,7 @@ input:focus {
 .calendar {
     position: relative;
     width: 200px;
+    height: 200px;
     margin-left: 10%;
     border: solid 3px var(--oxfordblue);
     text-align: center;
@@ -277,7 +218,7 @@ input:focus {
 
 .calendar #dayName {
     font-size: 16px;
-    margin-top: -5px;
+    margin-top: 15px;
     color: var(--greyDarkF);
     font-weight: 700;
 }
@@ -285,21 +226,23 @@ input:focus {
 .calendar #dayNumber {
     font-size: 30px;
     line-height: 1em;
+    margin-top: 15px;
     color: var(--purpleDark);
     font-weight: 700;
 }
 
 .calendar #year {
     font-size: 16px;
+    margin-top: 15px;
     color: var(--greyDarkF);
     font-weight: 500;
 }
 
 table {
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
 }
-
+f
 thead {
     background: var(--greyLightF2);
 }
