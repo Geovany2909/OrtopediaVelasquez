@@ -13,6 +13,40 @@ function fun_galery(id) {
     });
 }
 
+function validarInput() {
+    $('#edit').css("display", "inline-block");
+}
+
+function fun_galeryAdmin(id) {
+    $.get("/admin/products/showOnlyProduct/" + id, function (data) {
+        console.log(data.id);
+        $("#imagen").attr("src", `/images/products/${data.photo}`);
+        $("#form").attr(
+            "action",
+            `/admin/products/updateOnlyProduct/${data.id}`
+        );
+        modal();
+    });
+}
+
+
+$("#edit").click(function (e) {
+    var form = $(this).parents("form");
+    var url = form.attr("action");
+    var image = $("#inFile");
+
+    $.ajax({
+        type: "PUT",
+        url: url,
+        data: form.serialize(),
+    success: function (data) {
+        console.log(data);
+    },
+    error: function (data) {
+                console.log(data);
+            },
+        });
+});
 
 function modal() {
     let modal = document.getElementById("tvesModal");

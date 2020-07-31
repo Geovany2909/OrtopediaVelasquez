@@ -3,11 +3,12 @@
 @section('title')
 Editar Usuario
 @endsection
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('inicio/css/add.css') }}">
 @endsection
-@section('content')
 
+@section('content')
 <div class="col-md-12">
     <div class="row">
         {!! Form::model($user,['method'=>'PATCH','action'=>['usersController@updateUserAuth',$user->id],'files'=>true,
@@ -15,7 +16,8 @@ Editar Usuario
         @csrf
         <h2>EDITAR INFORMACION </h2>
         <p type="Nombre:">
-            <input name="name" type="text" placeholder="Ingrese su nombre aqui.." value="{{ old('name', $user->name) }}">
+            <input name="name" type="text" placeholder="Ingrese su nombre aqui.."
+                value="{{ old('name', $user->name) }}">
         </p>
 
         @error('name')
@@ -26,7 +28,7 @@ Editar Usuario
 
         <p type="Email:">
             <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
-                placeholder="Ingrese su correo.." >
+                placeholder="Ingrese su correo..">
         </p>
         @error('email')
         <p style="color: red;">
@@ -60,8 +62,8 @@ Editar Usuario
         @enderror
 
         <p type="Confirme su contraseña actual">
-            <input type="password" id="password"name="password" placeholder="Confirme contraseña">
-            <div id="toggle" onclick="showHide();"></div>
+            <input type="password" id="password" name="password" placeholder="Confirme contraseña">
+            <span toggle="#password-field" id="togglePassword" class="fa fa-fw fa-eye field-icon"></span>
         </p>
         @error('password')
         <p style="color: red;">
@@ -79,7 +81,7 @@ Editar Usuario
 
 @endsection
 @section('js')
-<script src="{{ asset('inicio/js/showPassword.js') }}"></script>
 <script src="{{ asset('inicio/js/imagePreview.js') }}"></script>
+<script src="{{ asset('inicio/js/showPassword.js') }}"></script>
 @endsection
 @endauth

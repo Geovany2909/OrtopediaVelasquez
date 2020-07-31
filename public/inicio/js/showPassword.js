@@ -1,25 +1,17 @@
-  /*Show and hide password*/
-  const password = document.getElementById('password');
-  const password2 = document.getElementById('password2');
-  const toggle = document.getElementById('toggle');
-  const toggle2 = document.getElementById('toggle2');
+//Pass1
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
 
-  function showHide() {
-      if (password.type === 'password') {
-          password.setAttribute('type', 'text');
-          toggle.classList.add('hide');
-      } else {
-          password.setAttribute('type', 'password');
-          toggle.classList.remove('hide');
-      }
-  }
-
-  function showHide2() {
-      if (password2.type === 'password') {
-          password2.setAttribute('type', 'text');
-          toggle2.classList.add('hide2');
-      } else {
-          password2.setAttribute('type', 'password');
-          toggle2.classList.remove('hide2');
-      }
-  }
+//pass 2
+const togglePasswordRepet = document.querySelector("#togglePassword1");
+const passwordRepet = document.querySelector("#password1");
+togglePasswordRepet.addEventListener('click', function(e){
+    const typeRepet = passwordRepet.getAttribute('type') === "password" ? "text" : "password";
+    passwordRepet.setAttribute("type", typeRepet);
+    this.classList.toggle('fa-eye-slash');
+});
