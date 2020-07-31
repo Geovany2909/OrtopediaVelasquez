@@ -2,7 +2,7 @@
 .navigation{
 	position: fixed;
 	width: 60px;
-    background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+    background: #006992;
     border: 1px solid rgba(0, 0, 0, 0.2);
 	height: 100%;
 	transition: 0.5s;
@@ -27,7 +27,7 @@
 	list-style: none;
 }
 .navigation ul li:hover{
-    background-image: linear-gradient(260deg, #094e7c 0%, #7b3288 100%);
+    background: #BBC1CD;
 }
 .navigation ul li a{
 	position: relative;
