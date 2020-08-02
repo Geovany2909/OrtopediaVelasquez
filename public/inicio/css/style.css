@@ -11,6 +11,12 @@
     padding-right: 25px;
 }
 
+.about2{
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
 /*#63b0b8*/
 
 .row{
@@ -119,7 +125,7 @@ select:focus{
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
-    background: #555;
+    background: #fff;
     transition: transform .5s;
 }
 
@@ -132,7 +138,7 @@ select:focus{
 }
 
 h4{
-    color: #fff;
+    color: #555;
     font-weight: normal;
 }
 
@@ -218,7 +224,7 @@ h4{
 }
 
  /*rgb(222, 28, 65)  #ec6f2f*/
-.about .cont2{
+.about2 .cont2{
     background: #ffffff;
     padding: 20px;
     width: 50%;

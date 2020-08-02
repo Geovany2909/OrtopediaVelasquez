@@ -28,3 +28,5 @@
         <p>Aviso legal - Política de privacidad - Política de cookies</p>
     </div>
 </div>
+
+<script src="https://unpkg.com/scrollreveal"></script>

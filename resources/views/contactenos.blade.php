@@ -9,8 +9,9 @@ Contactenos
 @endsection
 @section('content')
 <!--Contactanos-->
+</div>
 <div class="section" style="display: flex; margin: 0 auto;">
-    <section class="about">
+    <section class="about2">
         <div class="img2"></div>
         <div class="cont2">
             <h2 class="heading2">Contactanos</h2>
