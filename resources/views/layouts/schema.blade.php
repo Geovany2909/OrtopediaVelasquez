@@ -36,13 +36,15 @@
                         </li>
                     </ul>
                 </nav>
-            <img src="{{asset('inicio/img/menu.png')}}" alt="" class="menu-icon" onclick="menutoggle()">
+                <img src="{{asset('inicio/img/menu.png')}}" alt="" class="menu-icon" onclick="menutoggle()">
             </div>
-        @yield('content')
-        @include('layouts.footer')
+            @yield('content')
+            @include('layouts.footer')
+        </div>
+    </div>
 
-        <script>
-            var MenuItems = document.getElementById("MenuItems");
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
 
             MenuItems.style.maxHeight = "0px";
 
@@ -54,7 +56,7 @@
                     MenuItems.style.maxHeight = "0px";
                 }
             }
-        </script>
+    </script>
 </body>
 @yield('js')
 @include('sweetalert::alert')

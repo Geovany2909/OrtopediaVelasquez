@@ -2,16 +2,14 @@
 @section('title')
 Contactenos
 @endsection
-@section('css')
-<style>
 
-</style>
-@endsection
 @section('content')
 <!--Contactanos-->
 <div class="section" style="display: flex; margin: 0 auto;">
     <section class="about">
-        <div class="img2"></div>
+        <div class="img2">
+            <img src="/inicio/img/c2.jpg" alt="">
+        </div>
         <div class="cont2">
             <h2 class="heading2">Contactanos</h2>
             <form action="{{ route('sendEmail')}}" method="post" class="form"">
