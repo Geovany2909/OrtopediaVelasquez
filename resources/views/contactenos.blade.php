@@ -2,11 +2,7 @@
 @section('title')
 Contactenos
 @endsection
-@section('css')
-<style>
 
-</style>
-@endsection
 @section('content')
 <!--Contactanos-->
 </div>

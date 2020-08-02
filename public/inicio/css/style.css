@@ -239,8 +239,7 @@ h4{
     margin-bottom: 10px;
 }
 
-.img2{
-    background: url(../img/c2.jpg);
+.about .img2 img{
     background-size: cover;
     background-position: left;
     width: 50%;

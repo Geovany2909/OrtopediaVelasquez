@@ -29,7 +29,7 @@ Productos
     <!-- Productos -->
     <section class="prod">
         <div class="row row-2">
-            <h2>Productos Disponibles</h2>
+            <h2>Productos Disponibles, <a href="javascript:void(0)"><small>{{ count($products) }}  Elementos en total</small></a></h2>
             <form action="javascript:void(0)">
                 <select id="category">
                     <option value="">Seleccione una opcion</option>
@@ -48,66 +48,18 @@ Productos
                 <h4>{{ $p->name }}</h4>
             </div>
             @empty
-            <p style="text-align: center; color:red;">No hay productos con esta categoria</p>
+            <p style="text-align: center; color:red;">Aun no hay productos registrados</p>
             @endforelse
         </div>
-        <div class="row iterar">
+        <div id="activar" style="">
+            <div class="row iterar">
+            </div>
         </div>
         <h1 id="mensaje" style="display: none; color:red;">No hay productos con esta categoria</h1>
     </section>
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script>
-    let mensaje = $('#mensaje');
-    $.ajaxSetup({
-    headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-    },
-});
-
-$("#category").change(function (e) {
-    document.getElementById('oculto').style.display = 'none';
-    let mensaje = $("#mensaje");
-    $('.iterar').html("");
-    let category = $(this).val();
-
-    if(category === "all"){
-        $.get("/products", function (data) {
-        if(data.length === 0){
-            mensaje.css("display", "block");
-        }else{
-            $.each(data, function(i, item) {
-                mensaje.css("display", "none");
-                myString =
-                    `<div class='col-4'>
-                        <img src='/images/products/${item.photo}'>
-                        <h4>${item.name}</h4>
-                    </div>`;
-                $('.iterar').append(myString);
-
-            });
-        }
-    });
-    }else{
-        $.get("/products/" + category, function (data) {
-            if(data.length === 0){
-                mensaje.css("display", "block");
-            }else{
-                $.each(data, function(i, item) {
-                    mensaje.css("display", "none");
-                    myString =
-                        `<div class='col-4'>
-                            <img src='/images/products/${item.photo}'>
-                            <h4>${item.name}</h4>
-                        </div>`;
-                    $('.iterar').append(myString);
-                });
-            }
-        });
-    }
-});
-
-</script>
+<script src="{{ asset('inicio/js/productsCategory.js') }}"></script>
 @endsection
 @endsection
