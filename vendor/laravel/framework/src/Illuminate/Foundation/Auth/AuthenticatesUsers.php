@@ -119,7 +119,9 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        toast("Regresaste! $user->name",'success')->timerProgressBar()
+        ->hideCloseButton()
+        ->position('top');
     }
 
     /**
