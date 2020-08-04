@@ -29,4 +29,5 @@
     </div>
 </div>
 
-<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{asset('inicio/js/main.js')}}"></script>

@@ -10,15 +10,17 @@ Productos
         <section>
             <div class="row">
                 <div class="col-2" oncontextmenu="return false;">
-                    <img src="/images/products/{{ $lastProduct->photo }}" alt="casco">
+                    <img class="home__img" src="/images/products/{{ $lastProduct->photo }}" alt="casco">
                 </div>
                 <div class="col-2">
-                    <h2 class="heading">{{ $lastProduct->name }}</h2>
+                    <h2 class="tit heading">{{ $lastProduct->name }}</h2>
                     <p class="txt">
                         {{ $lastProduct->description }}
                     </p>
                     <br>
-                    <a href="{{ route('viewOnlyProduct', $lastProduct->id) }}" class="btn btn3">MAS INFO</a>
+                    <div class="button">
+                        <a href="{{ route('viewOnlyProduct', $lastProduct->id) }}" class="btn btn3">MAS INFO</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -29,9 +31,9 @@ Productos
     <!-- Productos -->
     <section class="prod">
         <div class="row row-2">
-            <h2>Productos Disponibles, <a href="javascript:void(0)"><small>{{ count($products) }}  Elementos en total</small></a></h2>
+            <h2 class="tit">Productos Disponibles</h2>
             <form action="javascript:void(0)">
-                <select id="category">
+                <select class="input" id="category">
                     <option value="">Seleccione una opcion</option>
                     <option value="all">Todas las categorias</option>
                     <option value="Ortesis">{{ old('category', 'Ortesis') }}</option>
@@ -43,7 +45,7 @@ Productos
         </div>
         <div class="row" id="oculto">
             @forelse ($products as $p)
-            <div class="col-4">
+            <div class="col-4 work__img">
                 <img src="/images/products/{{ $p->photo }}">
                 <h4>{{ $p->name }}</h4>
             </div>

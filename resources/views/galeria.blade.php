@@ -11,12 +11,12 @@ Galeria
 <!-- Productos -->
 <div class="section">
     <section class="prod">
-        <h2 class="heading">Galeria</h2>
+        <h2 class="titulo tit">Galeria</h2>
         <div class="main-menu">
             @foreach ($products as $product)
             <div oncontextmenu="alert('No tienes permisos para descargar'); return false;">
                 <a href="javascript:void(0);" onclick="fun_galery({{$product -> id}})">
-                    <div class="option">
+                    <div class="option work__img">
                         <img src="/images/products/{{ $product->photo }}" >
                     </div>
                 </a>
