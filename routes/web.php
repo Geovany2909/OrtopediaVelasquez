@@ -28,7 +28,7 @@ Route::get('/products/{category?}', function (Request $request, $category) {
 })->name('products');
 
 
-Route::get('/products/image/casco-de-bebe', function () {
+Route::get('/products/image/casco-de-bebe/', function () {
     return view('OnlyProduct');
 })->name('viewOnlyProduct');
 
@@ -47,6 +47,10 @@ Route::get('/saberMas', function () {
 
 Route::get('/contacts', 'MailController@index')->name('contacts');
 Route::get('/contacts/p={name}', 'MailController@productName')->name('contactsName');
+Route::get('/contacts/cascos-de-bebes', function(){
+    $cascos = ['name'=>'Cascos de bebe'];
+    return view('contactenos', compact('cascos'));
+})->name('contactsCascos');
 Route::post('/send', 'MailController@send')->name('sendEmail');
 
 /****************************************************** */

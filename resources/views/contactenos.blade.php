@@ -37,7 +37,7 @@ Contactenos
                     @if(isset($product))
                     <input class="input" value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}" type="text" name="comment" placeholder="Comentario">
                     @else
-                    <input class="input" value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario*">
+                    <input value="{{ route('contactsCascos') ? 'Desearía recibir información más detallada sobre cascos de bebe' : old('comment') }}" type="text" name="comment" placeholder="Comentario*">
                     @endif
                     @error('comment')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>
