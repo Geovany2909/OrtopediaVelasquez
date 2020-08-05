@@ -23,7 +23,7 @@ Productos
             </p>
             <br>
             <div class="button">
-                <a href="{{ route('viewOnlyProduct') }}" class="btn btn3">MAS INFO</a>
+                <a href="{{ route('viewOnlyProduct', "/") }}" class="btn btn3">MAS INFO</a>
             </div>
         </div>
     </div>
