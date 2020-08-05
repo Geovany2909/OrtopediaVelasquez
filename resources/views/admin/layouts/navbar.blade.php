@@ -1,6 +1,14 @@
 <div class="navigation">
     <ul>
         <li>
+            <a href="{{ route('inicio') }}">
+                <span class="icon">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </span>
+                <span class="title">Principal</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('home') }}">
                 <span class="icon">
                     <i class="fa fa-home" aria-hidden="true"></i>

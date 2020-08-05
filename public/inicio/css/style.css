@@ -130,7 +130,17 @@ select:focus{
 }
 
 .col-4 img{
-    width: 100%;
+    width: 70%;
+    height: 200px;
+}
+.col-4 button{
+    text-align: center;
+    left: 20%;
+    background: white;
+    border-color: #555;
+    font-size: 14px;
+    border-radius: 1rem;
+    width: 50%;
 }
 
 .col-4:hover{
@@ -243,6 +253,10 @@ h4{
     background-size: cover;
     background-position: left;
     width: 50%;
+}
+#imgA{
+    width: 600px;
+    height: 570px;
 }
 
 .form .inputBx{

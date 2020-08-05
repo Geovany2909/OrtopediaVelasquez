@@ -4,6 +4,7 @@ $.ajaxSetup({
     },
 });
 
+//pagina principal
 function fun_galery(id) {
     $.get("/galery/" + id, function (data) {
         console.log(data.name);

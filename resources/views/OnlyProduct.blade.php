@@ -8,18 +8,16 @@ Img
 @section('content')
 <!-- Aca el codigo de esta seccion -->
 <div class="section">
-    @if ($viewOnlyProduct)
     <section class="about">
         <div>
-            <img src="/images/products/{{ $viewOnlyProduct->photo }}" alt="casco">
+            <img src="/inicio/img/1.jpg" alt="casco">
         </div>
         <div>
-            <h2>{{ $viewOnlyProduct->name}}</h2>
-            <p>{{ $viewOnlyProduct->category }}</p>
-            <p>{{ $viewOnlyProduct->description }}</p>
+            <h2></h2>
+            <p></p>
+            <p></p>
         </div>
     </section>
-    @endif
 </div>
 @section('js')
 

@@ -30,7 +30,7 @@ Editar Usuario
 
         <div class="col-2">
             <p type="Email:">
-                <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
+                <input name="email" value="{{ old('email', $user->email) }}"
                     placeholder="Ingrese su correo..">
             </p>
             @error('email')
@@ -64,7 +64,7 @@ Editar Usuario
         </div>
     </div>
 
-    <p type="Seleccione una imagen">
+    <p type="Seleccione una imagen si desea cambiar la actual">
         <input type="file" name="photo" id="inFile" accept="image/*">
         <div class="image-preview" id="imagePreview">
             <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Image Preview"

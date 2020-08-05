@@ -17,12 +17,10 @@ Route::get('/products', function (Request $request) {
         $ajax = Product::all();
         return response()->json($ajax);
     }
-    $lastProduct = Product::latest()->first();
-
     $products = Product::all();
-    return view('products', compact('products', 'lastProduct'))->render();
+    return view('products', compact('products'))->render();
 });
-Route::get('/products/{category?}', function (Request $request, $category = null) {
+Route::get('/products/{category?}', function (Request $request, $category) {
     if ($request->ajax()) {
         $ajax = Product::where('category', $category)->get();
         return response()->json($ajax);
@@ -30,9 +28,8 @@ Route::get('/products/{category?}', function (Request $request, $category = null
 })->name('products');
 
 
-Route::get('/products/image/{id}', function ($id) {
-    $viewOnlyProduct = Product::where('id', $id)->first();
-    return view('OnlyProduct', compact('viewOnlyProduct'));
+Route::get('/products/image/casco-de-bebe', function () {
+    return view('OnlyProduct');
 })->name('viewOnlyProduct');
 
 Route::get('/galery/{id?}', function (Request $request, $id = null) {
@@ -47,7 +44,9 @@ Route::get('/galery/{id?}', function (Request $request, $id = null) {
 Route::get('/saberMas', function () {
     return view('saberMas');
 })->name('saberMas');
+
 Route::get('/contacts', 'MailController@index')->name('contacts');
+Route::get('/contacts/p={name}', 'MailController@productName')->name('contactsName');
 Route::post('/send', 'MailController@send')->name('sendEmail');
 
 /****************************************************** */

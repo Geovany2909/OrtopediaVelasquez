@@ -29,7 +29,9 @@
     box-sizing:border-box;
     font-family:'Montserrat',sans-serif;
     position:relative;
-    overflow: hidden;
+    overflow: auto;
+    margin-right: 20%;
+
 }
 
 h2{

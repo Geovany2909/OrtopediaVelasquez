@@ -17,7 +17,7 @@ Galeria
             <div oncontextmenu="alert('No tienes permisos para descargar'); return false;">
                 <a href="javascript:void(0);" onclick="fun_galery({{$product -> id}})">
                     <div class="option work__img">
-                        <img src="/images/products/{{ $product->photo }}" >
+                        <img  src="/images/products/{{ $product->photo }}" >
                     </div>
                 </a>
             </div>
@@ -27,8 +27,8 @@ Galeria
             <div id="tvesModal" class="modalContainer">
                 <div class="modal-content">
                     <span class="close">×</span>
-                    <img oncontextmenu="return false;" id="imagen">
-                    <h3 id="description"></h3>
+                    <img class="zoom" id="imagen">
+                    <h4 id="description"></h4>
                 </div>
             </div>
         </div>

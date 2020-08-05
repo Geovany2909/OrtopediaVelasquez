@@ -91,7 +91,7 @@ class productsController extends Controller
     public function galery(Request $request)
     {
         $name  = $request->get('name');
-        $products = Product::orderBy('id', 'ASC')->name($name)->simplePaginate(4);
+        $products = Product::orderBy('id', 'ASC')->name($name)->get();
         return view('admin.products.galery', compact('products'));
     }
     public function showOnlyProduct(Request $request, $id)
@@ -131,7 +131,6 @@ class productsController extends Controller
                     $input['photo'] = $temp_name;
                 }
                 $product->update($input);
-                //return response()->json($product);
                 Alert::success('Exito!', 'la imagen fue actualizada');
                 return redirect()->route('galery');
             }

@@ -18,7 +18,6 @@
 
 <body>
     @include('admin.layouts.navbar')
-
     <section id="content-area">
         @yield('content')
         <div>

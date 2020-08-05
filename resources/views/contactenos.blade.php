@@ -8,31 +8,38 @@ Contactenos
 </div>
 <div class="section" style="display: flex; margin: 0 auto;">
     <section class="about2">
-        <div class="img2"></div>
+        <div class="img2">
+            <img id="imgA" src="{{ asset('inicio/img/c2.jpg') }}"  alt="">
+        </div>
         <div class="cont2">
             <h2 class="heading2">Contactanos</h2>
-            <form action="{{ route('sendEmail')}}" method="post" class="form"">
+            <form action="{{ route('sendEmail')}}" method="post" class="form">
                 @csrf
+                <span>Los campos con <b style="color: red">*</b> son obligatorios</span>
                 <div class=" inputBx">
-                    <input class="input" value="{{ old('name') }}" type="text"  name="name" placeholder="Nombre completo">
+                    <input class="input" value="{{ old('name') }}" type="text"  name="name" placeholder="Nombre completo*">
                     @error('name')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
-                    <input class="input" value="{{ old('email') }}" type="text" name="email" placeholder="Correo Electronico">
+                    <input class="input" value="{{ old('email') }}" type="text" name="email" placeholder="Correo Electronico*">
                     @error('email')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
-                    <input class="input" value="{{ old('phone') }}" type="text" name="phone" placeholder="Telefono">
+                    <input class="input" value="{{ old('phone') }}" type="text" name="phone" placeholder="Telefono*">
                     @error('phone')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
-                    <input class="input" value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario">
+                    @if(isset($product))
+                    <input value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}" type="text" name="comment" placeholder="Comentario">
+                    @else
+                    <input value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario*">
+                    @endif
                     @error('comment')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror

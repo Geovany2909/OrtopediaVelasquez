@@ -4,11 +4,17 @@ main {
     margin: auto;
 }
 
-
+#imagePreview{
+    margin-top: 50px;
+}
+#imagePreview img{
+    border-radius: 1rem;
+}
 .main-menu {
     width: 100%;
     max-width: 900px;
     margin: auto;
+    margin-right: 20%;
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
@@ -52,7 +58,6 @@ main {
 .image-preview {
     width: 200px;
     min-height: 100px;
-    border: 2px solid #dddddd;
     margin-top: 15px;
     display: flex;
     align-items: center;
@@ -90,6 +95,7 @@ button {
 }
 
 .move {
+    margin-top: 50px;
     margin-left: 30%;
 }
 
@@ -99,6 +105,12 @@ button:hover {
 }
 .image {
     display: block;
+    width: 200px;
+    height: 200px;
+}
+#p{
+    margin-bottom: 15px;
+    color: red;
 }
 .modalContainer {
     display: none;
@@ -112,7 +124,7 @@ button:hover {
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modalContainer .modal-content {
@@ -120,7 +132,7 @@ button:hover {
     margin: auto;
     padding: 20px;
     border: 1px solid lightgray;
-    border-top: 10px solid #58abb7;
+    border-top: 5px solid #006992;
     width: 40%;
 }
 
@@ -133,7 +145,7 @@ button:hover {
 
 .modalContainer .close:hover,
 .modalContainer .close:focus {
-    color: #000;
+    color: #006992;
     text-decoration: none;
     cursor: pointer;
 }

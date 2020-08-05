@@ -10,7 +10,7 @@ Galery
 
 @section('content')
 <div class="heading">
-    <h1>Dashboard/Galeria</h1>
+    <h1><a href="{{ route('home') }}">Dashboard</a>/Galeria</h1>
 </div>
 <main>
     @section('buscar')
@@ -35,18 +35,17 @@ Galery
             @endsection
         @endforelse
     </div>
-    {{ $products->links() }}
     {{-- Modal --}}
     <div id="tvesModal" class="modalContainer">
         <div class="modal-content">
             <span class="close">×</span>
         <form id="form" enctype="multipart/form-data" method="POST">
             @csrf @method('patch')
-            <p type="Si desea cambiar, Seleccione una imagen.">
+            <p>
+                <h4 id="p">Si desea cambiar, Seleccione una imagen.</h4>
                 <input type="file" name="photo" id="inFile" accept="image/*" oninput="validarInput()">
                 <div class="image-preview" id="imagePreview">
-                    <img id="imagen" alt="Image Preview"
-                        width="200" class="image">
+                    <img id="imagen" alt="Image Preview" class="image">
                     <span style="display: none;" class="default-text">Sin foto actual</span>
                 </div>
 

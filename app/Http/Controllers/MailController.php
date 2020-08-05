@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\validateContactForm as validateContact;
 use Illuminate\Http\Request;
 use App\Mail\SendMail;
+use App\Product;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -13,6 +14,11 @@ class MailController extends Controller
     public function index()
     {
         return view('contactenos');
+    }
+    public function productName(Request $request,$name)
+    {
+        $product = Product::where('name',$name)->first();
+        return view('contactenos', compact('product'));
     }
 
     public function send(validateContact $request)

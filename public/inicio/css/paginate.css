@@ -3,11 +3,13 @@
     display: inline;
     font-size: 1.2em;
     padding: 0.5em;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .pagination li a {
     color: #000;
     width: 100%;
-    background-color: thistle;
+    background-color: rgb(238, 238, 238);
     border-radius: 20%;
 }
