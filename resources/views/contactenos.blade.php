@@ -9,7 +9,6 @@ Contactenos
 <div class="section" style="display: flex; margin: 0 auto;">
     <section class="about2">
         <div class="img2">
-            <img id="imgA" src="{{ asset('inicio/img/c2.jpg') }}"  alt="">
         </div>
         <div class="cont2">
             <h2 class="heading2">Contactanos</h2>
@@ -36,9 +35,9 @@ Contactenos
                 </div>
                 <div class="inputBx">
                     @if(isset($product))
-                    <input value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}" type="text" name="comment" placeholder="Comentario">
+                    <input class="input" value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}" type="text" name="comment" placeholder="Comentario">
                     @else
-                    <input value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario*">
+                    <input class="input" value="{{ old('comment') }}" type="text" name="comment" placeholder="Comentario*">
                     @endif
                     @error('comment')
                         <span style="color:red; font-size:14px;">{{ $message }}</span>

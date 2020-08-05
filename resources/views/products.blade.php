@@ -30,11 +30,12 @@ Productos
 </section>
 </div>
 </div>
+<br><br><br><br>
 <!-- Productos -->
 <section class="prod">
     <div class="row row-2">
         <h2 class="tit">Productos Disponibles</h2>
-        <h2 id="numeros">{{ count($products) }} Elementos en total</h2>
+        <h2 class="tit" id="numeros">{{ count($products) }} Elementos en total</h2>
         <form action="javascript:void(0)">
             <select class="input" id="category">
                 <option disabled>Seleccione una opcion</option>

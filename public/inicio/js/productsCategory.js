@@ -29,7 +29,7 @@ $("#category").change(function (e) {
                             mensaje.css("display", "none");
                             myString = `
                             <form action='/contacts/p=${item.name}'
-                                <div class='col-4'>
+                                <div class='col-4 work__img'>
                                     <img oncontextmenu="return false;" src='/images/products/${item.photo}'>
                                     <h4>${item.name}</h4>
                                 </div>
@@ -50,7 +50,7 @@ $("#category").change(function (e) {
                             mensaje.css("display", "none");
                             myString = `
                             <form action='/contacts/p=${item.name}'
-                                <div class='col-4'>
+                                <div class='col-4 work__img'>
                                     <img oncontextmenu="return false;" src='/images/products/${item.photo}'>
                                     <h4>${item.name}</h4>
                                 </div>

@@ -32,6 +32,32 @@ Galeria
                 </div>
             </div>
         </div>
+
+        <br>
+        <h2 class="titulo tit">Videos</h2>
+        <div class="main-menu">
+            <div>
+                <a href="#">
+                    <div class="option work__img">
+                        <iframe src="https://s3-eu-west-1.amazonaws.com/qdqvideos/videos/015/015888558/40d591fc-e756-5845-88c2-eeea6fefe165.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <div class="option work__img">
+                        <iframe src="https://s3-eu-west-1.amazonaws.com/qdqvideos/videos/015/015888558/40d591fc-e756-5845-88c2-eeea6fefe165.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <div class="option work__img">
+                        <iframe src="https://s3-eu-west-1.amazonaws.com/qdqvideos/videos/015/015888558/40d591fc-e756-5845-88c2-eeea6fefe165.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </a>
+            </div>
+        </div>
     </section>
 </div>
 @section('js')
