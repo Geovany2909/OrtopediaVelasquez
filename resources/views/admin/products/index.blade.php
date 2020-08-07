@@ -30,10 +30,10 @@ Crear Productos
                         PRECIO
                     </th>
                     <th>
-                        DESCRIPCION
+                        DESCRIPCIÓN
                     </th>
                     <th>
-                        CATEGORIA
+                        CATEGORÍA
                     </th>
                     <th>
                         CREADO
@@ -42,30 +42,32 @@ Crear Productos
                         ACTUALIZADO
                     </th>
                     <th>
-                        ACCION
+                        ACCIONES
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($products as $p)
-                <tr>
-                    <td><span class="logo">{{ $p->id }}</span> {{ $p->name }}</td>
-                    <td>${{ $p->price }}</td>
-                    <td>{{ $p->description }}</td>
-                    <td>{{ $p->category }}</td>
-                    <td>{{ $p->created_at->diffForHumans()}}</td>
-                    <td>{{ $p->updated_at->diffForHumans()}}</td>
-                    <td>
-                        <a href="{{ route('products.edit', $p->id) }}" class="action green"><i
-                                class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                        <a href="{{ route('products.show', $p->id) }}" class="action red"><i class="fa fa-trash"
-                                aria-hidden="true"></i></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><span class="logo">{{ $p->id }}</span> {{ $p->name }}</td>
+                        <td>${{ $p->price }}</td>
+                        <td>{{ $p->description }}</td>
+                        <td>{{ $p->category }}</td>
+                        <td>{{ $p->created_at->diffForHumans()}}</td>
+                        <td>{{ $p->updated_at->diffForHumans()}}</td>
+                        <td>
+                            <a href="{{ route('products.edit', $p->id) }}" class="action green"><i
+                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a href="{{ route('products.show', $p->id) }}" class="action red"><i class="fa fa-trash-o"
+                                    aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
                 @empty
-                @section('empty')
-                <h2 style="color: red;text-align: center;margin-right: 20%;">En este momento no hay productos</h2>
-                @endsection
+                    @section('empty')
+                    <h2 style="color: red;text-align: center;margin-right: 20%;">
+                        En este momento no hay productos
+                    </h2>
+                    @endsection
                 @endforelse
 
             </tbody>

@@ -11,50 +11,56 @@ Contactenos
         <div class="img2">
         </div>
         <div class="cont2">
-            <h2 class="heading2">Contactanos</h2>
+            <h2 class="heading2">Contáctanos</h2>
             <form action="{{ route('sendEmail')}}" method="post" class="form">
                 @csrf
                 <span>Los campos con <b style="color: red">*</b> son obligatorios</span>
                 <div class=" inputBx">
-                    <input class="input" value="{{ old('name') }}" type="text"  name="name" placeholder="Nombre completo*">
+                    <input class="input" value="{{ old('name') }}" type="text" name="name"
+                        placeholder="Nombre completo*">
                     @error('name')
-                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
-                    <input class="input" value="{{ old('email') }}" type="text" name="email" placeholder="Correo Electronico*">
+                    <input class="input" value="{{ old('email') }}" type="text" name="email"
+                        placeholder="Correo Electrónico*">
                     @error('email')
-                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
-                    <input class="input" value="{{ old('phone') }}" type="text" name="phone" placeholder="Telefono*">
+                    <input class="input" value="{{ old('phone') }}" type="text" name="phone" placeholder="Teléfono*">
                     @error('phone')
-                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     @if(isset($product))
-                    <input class="input" value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}" type="text" name="comment" placeholder="Comentario">
+                    <input class="input"
+                        value="{{ 'Desearía recibir información más detallada sobre'. ' '. $product->name }}"
+                        type="text" name="comment" placeholder="Comentario">
                     @else
-                    <input value="{{ route('contactsCascos') ? 'Desearía recibir información más detallada sobre cascos de bebe' : old('comment') }}" type="text" name="comment" placeholder="Comentario*">
+                    <input
+                        value="{{ route('contactsCascos') ? 'Desearía recibir información más detallada sobre cascos de bebé' : old('comment') }}"
+                        type="text" name="comment" placeholder="Comentario*">
                     @endif
                     @error('comment')
-                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     {!! htmlFormSnippet() !!}
                     @error('g-recaptcha-response')
-                        <span style="color:red; font-size:14px;">{{ $message }}</span>
+                    <span style="color:red; font-size:14px;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="inputBx">
                     <input class="input" type="submit" value="Enviar Ahora">
                 </div>
             </form>
-    </div>
-</section>
+        </div>
+    </section>
 </div>
 <div class="section">
     <section class="cont">
@@ -71,7 +77,7 @@ Contactenos
             <div class="card">
                 <i class="icon fas fa-phone"></i>
                 <div class="card-content">
-                    <h3>Telefono</h3>
+                    <h3>Teléfono</h3>
                     <span>Telf: 640231023</span>
                 </div>
             </div>
@@ -93,4 +99,3 @@ Contactenos
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection
 @endsection
-

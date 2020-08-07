@@ -119,7 +119,7 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        //
+        toast("Bienvenido ".$user->name, 'success')->position('top');
     }
 
     /**

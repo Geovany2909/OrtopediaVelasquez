@@ -16,7 +16,7 @@ Crear Producto
         @csrf
         <h2>AGREGAR PRODUCTOS</h2>
         <p type="Nombre del Producto:">
-            <input type="text" value="{{ old('name') }}" name="name" placeholder="Nombre del Producto">
+            <input type="text" value="{{ old('name') }}" name="name" placeholder="Nombre del producto">
         </p>
 
         @error('name')
@@ -25,13 +25,17 @@ Crear Producto
         </p>
         @enderror
 
-        <p type="Seleccione la categoria:">
+        <p type="Seleccione la categoría:">
             <select name="category">
-                <option value="{{ old('category', '')}}">{{ old('category',"Seleccione una categoria") }}</option>
-                <option value="Ortesis">Ortesis</option>
-                <option value="Ortesis inferior">Ortesis inferior</option>
-                <option value="Protesis Superior">Protesis Superior</option>
-                <option value="Protesis Inferior">Protesis Inferior</option>
+                <option value="{{ old('category', '')}}">{{ old('category',"Seleccione una categoría") }}</option>
+                <option value="Ortopedia técnica">Ortopedia técnica</option>
+                <option value="Protésis">Protésis</option>
+                <option value="Ayudas técnicas y movilidad">Ayudas técnicas y movilidad</option>
+                <option value="Ortesis del deporte">Ortesis del deporte</option>
+                <option value="Prótesis mamarias">Prótesis mamarias</option>
+                <option value="Ortopedia deportiva">Ortopedia deportiva</option>
+                <option value="Scooter plegable transformer">Scooter plegable transformer</option>
+                <option value="Cascos para niños">Cascos para niños</option>
             </select>
         </p>
 
@@ -42,7 +46,7 @@ Crear Producto
         @enderror
 
         <p type="Precio:">
-            <input type="text"  name="price" value="{{ old('price') }}" placeholder="Precio">
+            <input type="text"  name="price" value="{{ old('price') }}" placeholder="Ejemplo 20.20">
         </p>
 
         @error('price')
@@ -51,11 +55,11 @@ Crear Producto
         </p>
         @enderror
 
-        <p type="Seleccione una imagen">
+        <p type="Seleccione una imágen">
             <input type="file" name="photo" required accept="image/*" value="{{ old('photo') }}" id="inFile">
             <div class="image-preview" id="imagePreview">
                 <img src="" class="image" width="150">
-                <span class="default-text" style="margin: 0 auto;">Image Preview</span>
+                <span class="default-text" style="margin: 0 auto;">Vista Previa</span>
             </div>
         </p>
 
@@ -65,14 +69,14 @@ Crear Producto
         </p>
         @enderror
 
-        <p type="Descripcion del producto">
-            <textarea name="description"rows="3">
+        <p type="Descripción del producto">
+            <textarea  name="description"rows="3" placeholder="descripción">
                 {{ old('description') }}
             </textarea>
         </p>
 
         @error('description')
-        <p style="color: red;">
+        <p style="color: red; margin-bottom: 15px;">
             {{ $message }}
         </p>
         @enderror

@@ -26,15 +26,15 @@ class validateFormProducts extends FormRequest
     {
         return [
             'name.required' => 'El :attribute es obligatorio. ',
-            'name.regex' => 'El :attribute debe de ser solo letras',
-            'name.min' => 'El :attribute debe contener minimo 4 letras',
-            'name.max' => 'El :attribute debe contener maximo de 70 letras',
+            'name.regex' => 'El :attribute debe contener solo letras',
+            'name.min' => 'El :attribute debe contener mínimo 4 letras',
+            'name.max' => 'El :attribute debe contener máximo de 70 letras',
             'category.required' => 'El :attribute es obligatorio',
             'price.required' => 'El :attribute es obligatorio',
-            'price.regex' => 'El formato del :attribute es invalido (ejemplo: 20.20)',
+            'price.regex' => 'El formato del :attribute es inválido (p.e: 20.20)',
             'description.required' => 'El :attribute es obligatorio',
             'photo.required' => 'El :attribute es obligatorio',
-            'photo.image' => 'El :attribute debe de ser solo tipo imagen',
+            'photo.image' => 'El :attribute debe contener imágenes',
 
         ];
     }
@@ -42,11 +42,11 @@ class validateFormProducts extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'Campo nombre',
-            'category' => 'Campo categoria',
-            'price' => 'Campo precio',
-            'description' => 'Campo descripcion',
-            'photo' => 'Campo foto',
+            'name' => 'campo nombre',
+            'category' => 'campo categoría',
+            'price' => 'campo precio',
+            'description' => 'campo descripción',
+            'photo' => 'campo foto',
 
         ];
     }

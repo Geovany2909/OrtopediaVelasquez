@@ -49,7 +49,7 @@ class productsController extends Controller
             $input['photo'] = $temp_name;
         }
         Product::create($input);
-        Alert::success('Exito!', 'Producto Creado Correctamente');
+        Alert::success('Éxito!', 'Producto creado correctamente');
         return redirect()->route('products.index');
     }
 
@@ -71,7 +71,7 @@ class productsController extends Controller
         $products = Product::findOrFail($id);
         $input = $request->only('name', 'category', 'price', 'description');
         $products->update($input);
-        Alert::info('Exito!', 'El producto ha sido actualizado');
+        Alert::info('Éxito!', 'El producto ha sido actualizado');
         return redirect()->route('products.index');
     }
 
@@ -84,7 +84,7 @@ class productsController extends Controller
             unlink($dropFile);
         }
         $products->delete();
-        Alert::error('Exito!', 'El producto se ha eliminado');
+        Alert::error('Éxito!', 'El producto se ha eliminado');
         return redirect()->route('products.index');
     }
 
@@ -104,15 +104,13 @@ class productsController extends Controller
 
     public function updateOnlyProduct(Request $request, $id)
     {
-        if($request->has('photo')){
+        if ($request->has('photo')) {
             $validator = Validator::make($request->all(), [
                 'photo' => 'image',
             ]);
             if ($validator->fails()) {
                 return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-            }
-            else
-            {
+            } else {
                 $input = $request->only('photo');
                 $product = Product::findOrFail($id);
                 $file = $request->file('photo');
@@ -134,8 +132,8 @@ class productsController extends Controller
                 Alert::success('Exito!', 'la imagen fue actualizada');
                 return redirect()->route('galery');
             }
-        }else{
-            alert::info("Info", "No se selecciono ningun archivo");
+        } else {
+            alert::info("Error!", "No se selecciono ningun archivo");
             return redirect()->route('galery');
         }
     }

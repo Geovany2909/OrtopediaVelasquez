@@ -11,9 +11,9 @@ Galeria
 <!-- Productos -->
 <div class="section">
     <section class="prod">
-        <h2 class="titulo tit">Galeria</h2>
+        <h2 class="titulo tit">Galería</h2>
         <div class="main-menu">
-            @foreach ($products as $product)
+            @forelse ($products as $product)
             <div oncontextmenu="alert('No tienes permisos para descargar'); return false;">
                 <a href="javascript:void(0);" onclick="fun_galery({{$product -> id}})">
                     <div class="option work__img">
@@ -21,7 +21,9 @@ Galeria
                     </div>
                 </a>
             </div>
-            @endforeach
+            @empty
+            <h2 style="color: red; ">Aún no hay productos registrados</h2>
+            @endforelse
 
             {{-- Modal de la imagen --}}
             <div id="tvesModal" class="modalContainer">

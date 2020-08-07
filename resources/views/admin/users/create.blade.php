@@ -24,7 +24,7 @@ Crear Usuario
         @enderror
 
         <br>
-        <p type="Email:">
+        <p type="Correo Electrónico:">
             <input name="email" value="{{ old('email') }}" placeholder="Ingrese su correo..">
         </p>
         @error('email')
@@ -33,11 +33,11 @@ Crear Usuario
         </p>
         @enderror
 
-        <p type="Seleccione una imagen">
+        <p type="Seleccione una imagén">
             <input type="file" name="photo" id="inFile" value="{{ old('photo') }}" accept="image/*">
             <div class="image-preview" id="imagePreview">
                 <img src="" class="image" width="100">
-                <span class="default-text">Vista Imagen</span>
+                <span class="default-text">Vista Previa</span>
             </div>
         </p>
 
@@ -47,9 +47,9 @@ Crear Usuario
         </p>
         @enderror
 
-        <p type="Ingrese contraseña">
+        <p type="Contraseña:">
             <div>
-                <input type="password" id="password" name="password" placeholder="Ingrese contraseña">
+                <input type="password"  id="password" name="password" placeholder="Ingrese contraseña">
                 <span toggle="#password-field" id="togglePassword" class="fa fa-fw fa-eye field-icon"></span>
             </div>
         </p>
@@ -68,7 +68,7 @@ Crear Usuario
         </p>
 
         @error('repeat_password')
-        <p style="color: red;">
+        <p style="color: red; margin-bottom: 15px;">
             {{ $message }}
         </p>
         @enderror

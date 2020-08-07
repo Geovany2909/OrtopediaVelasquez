@@ -6,7 +6,7 @@ Home
 @section('content')
 <div class="heading">
     <h1>Dashboard</h1>
-    <p>Bienvenido a Ortopedia Velasquez Admin</p>
+    <p>Bienvenido a órtopedia Velasquez Admin</p>
 </div>
 
 <div class="cards" style="margin-top: 5%;">
@@ -38,6 +38,5 @@ Home
             </div>
         </div>
     </div>
-</>
 @endsection
 @endauth

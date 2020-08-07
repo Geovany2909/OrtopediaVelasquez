@@ -21,6 +21,7 @@
         border-radius: 5px;
         cursor: pointer;
         transition: all 300ms;
+        margin-right: 30%; 
     }
 
     .option img{
@@ -33,7 +34,7 @@
     }
 
     .option h2{
-        font-size: 30px;
+        font-size: 25px;
         margin-top: 10px;
         font-weight: 600;
         letter-spacing: 1px;

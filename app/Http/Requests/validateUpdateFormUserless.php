@@ -24,24 +24,24 @@ class validateUpdateFormUserless extends FormRequest
     {
         return [
             'name.required' => 'El :attribute es requerido',
-            'name.regex' => 'El :attribute debe ser solo letras',
-            'name.min' => 'El :attribute debe de tener minimo 8 caracteres',
-            'name.max' => 'El :attribute debe de tener maximo 64 caracteres',
-            'email.regex' => 'El formato del :attribute no es valido',
+            'name.regex' => 'El :attribute debe contener solo letras',
+            'name.min' => 'El :attribute debe de tener mínimo 8 carácteres',
+            'name.max' => 'El :attribute debe de tener máximo 64 carácteres',
+            'email.regex' => 'El formato del :attribute no es válido',
             'email.required' => 'El :attribute es requerido',
-            'repeat_email.required' => ':attribute es requerido',
-            'repeat_email.regex' => 'El formato de :attribute no es valido',
-            'repeat_email.same' => 'email y :attribute no coinciden',
-            'photo' => 'el :attribute debe de ser imagen',
+            'repeat_email.required' => 'El :attribute es requerido',
+            'repeat_email.regex' => 'El formato de :attribute no es válido',
+            'repeat_email.same' => 'Correo y :attribute no coinciden',
+            'photo' => 'el :attribute debe de ser imágen',
         ];
     }
     public function attributes()
     {
         return [
             'name' => 'nombre',
-            'email' => 'email',
-            'repeat_email'=> 'confirmar email',
-            'photo' => 'Campo photo',
+            'email' => 'correo',
+            'repeat_email'=> 'confirmar correo',
+            'photo' => 'Campo foto',
         ];
     }
 }

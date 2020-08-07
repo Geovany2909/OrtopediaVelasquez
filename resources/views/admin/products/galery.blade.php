@@ -10,11 +10,11 @@ Galery
 
 @section('content')
 <div class="heading">
-    <h1><a href="{{ route('home') }}">Dashboard</a>/Galeria</h1>
+    <h1>Dashboard/Galeria</h1>
 </div>
 <main>
     @section('buscar')
-    {{ Form::open(['route' => 'galery', 'method' => 'GET', 'class' => 'pone-la-clase-que-queras-para-el-form']) }}
+    {{ Form::open(['route' => 'galery', 'method' => 'GET', 'class' => 'form-buscar']) }}
     <input type="text" name="name" placeholder="Buscar por nombre">
     <i class="fa fa-search" aria-hidden="true"></i>
     <button type="submit" style="display: none"></button>
@@ -42,7 +42,7 @@ Galery
         <form id="form" enctype="multipart/form-data" method="POST">
             @csrf @method('patch')
             <p>
-                <h4 id="p">Si desea cambiar, Seleccione una imagen.</h4>
+                <h4 id="p">Si desea cambiar, Seleccione una nueva imágen.</h4>
                 <input type="file" name="photo" id="inFile" accept="image/*" oninput="validarInput()">
                 <div class="image-preview" id="imagePreview">
                     <img id="imagen" alt="Image Preview" class="image">

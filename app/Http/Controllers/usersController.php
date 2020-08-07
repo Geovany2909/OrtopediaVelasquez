@@ -48,7 +48,7 @@ class usersController extends Controller
         $input['password'] = bcrypt($password);
 
         User::create($input);
-        Alert::success('Agregado!', 'El usuario se ha agregado correctamente');
+        Alert::success('Éxito!', 'El usuario se ha agregado correctamente');
         return redirect()->route('users.index');
     }
 
@@ -83,7 +83,7 @@ class usersController extends Controller
             $input['photo'] = $temp_name;
         }
         $users->update($input);
-        Alert::info('Actualizado!', "El usuario $users->email ha sido actualizado exitosamente");
+        Alert::info('Éxito!', "El usuario $users->email ha sido actualizado exitosamente");
         return redirect()->route('users.index');
     }
 
@@ -95,7 +95,7 @@ class usersController extends Controller
             unlink($originalFile);
         }
         $users->delete();
-        Alert::error('Eliminado', "El usuario '$users->email' fue eliminado  correctamente");
+        Alert::error('Éxito!', "El usuario $users->email fue eliminado correctamente");
         return redirect()->route('users.index');
     }
 
@@ -146,8 +146,8 @@ class usersController extends Controller
             Alert::info('Actualizado', "El usuario $users->email ha sido actualizado exitosamente");
             return redirect()->route('home');
         } else {
-            toast('Contraseña Incorrecta','warning')->timerProgressBar()->position('center');
-            return redirect()->route('userInfo', $users->id);
+            toast('Contraseña incorrecta','warning')->timerProgressBar()->position('center');
+            return redirect()->back();
         }
     }
 }

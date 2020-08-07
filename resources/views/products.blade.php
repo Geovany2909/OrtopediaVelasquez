@@ -35,15 +35,20 @@ Productos
 <section class="prod">
     <div class="row row-2">
         <h2 class="tit">Productos Disponibles</h2>
-        <h2 class="tit" id="numeros">{{ count($products) }} Elementos en total</h2>
+        <h2 class="tit" id="numeros">{{ count($products) ?  count($products)." ". 'Elementos en total' : "" }} </h2>
         <form action="javascript:void(0)">
             <select class="input" id="category">
-                <option disabled>Seleccione una opcion</option>
+                <option style="display:none;">Seleccione una opcion</option>
                 <option value="all">Todas las categorias</option>
                 <option value="Ortesis">{{ old('category', 'Ortesis') }}</option>
-                <option value="Ortesis inferior">Ortesis inferior</option>
-                <option value="Protesis Superior">Protesis Superior</option>
-                <option value="Protesis Inferior">Protesis Inferior</option>
+                <option value="Ortopedia técnica">Ortopedia técnica</option>
+                <option value="Protésis">Protésis</option>
+                <option value="Ayudas técnicas y movilidad">Ayudas técnicas y movilidad</option>
+                <option value="Ortesis del deporte">Ortesis del deporte</option>
+                <option value="Prótesis mamarias">Prótesis mamarias</option>
+                <option value="Ortopedia deportiva">Ortopedia deportiva</option>
+                <option value="Scooter plegable transformer">Scooter plegable transformer</option>
+                <option value="Cascos para niños">Cascos para niños</option>
             </select>
         </form>
     </div>
@@ -64,7 +69,9 @@ Productos
         <div class="row iterar">
         </div>
     </div>
-    <h1 id="mensaje" style="display: none; color:red;">No hay productos con esta categoria</h1>
+    <h1 id="mensaje" style="display: none; color:red; margin-left: 30%;">
+        No hay productos con esta categoria
+    </h1>
 </section>
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"

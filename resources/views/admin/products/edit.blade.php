@@ -27,10 +27,14 @@ Editar Producto
         <p type="Seleccione la categoria:">
             <select name="category">
                 <option value="{{ old('category', $product->category) }}">{{old('category', $product->category)}}</option>
-                <option value="Ortesis">Ortesis</option>
-                <option value="Ortesis inferior">Ortesis inferior</option>
-                <option value="Protesis Superior">Protesis Superior</option>
-                <option value="Protesis Inferior">Protesis Inferior</option>
+                <option value="Ortopedia técnica">Ortopedia técnica</option>
+                <option value="Protésis">Protésis</option>
+                <option value="Ayudas técnicas y movilidad">Ayudas técnicas y movilidad</option>
+                <option value="Ortesis del deporte">Ortesis del deporte</option>
+                <option value="Prótesis mamarias">Prótesis mamarias</option>
+                <option value="Ortopedia deportiva">Ortopedia deportiva</option>
+                <option value="Scooter plegable transformer">Scooter plegable transformer</option>
+                <option value="Cascos para niños">Cascos para niños</option>
             </select>
         </p>
 
@@ -41,7 +45,7 @@ Editar Producto
         @enderror
 
         <p type="Precio:">
-            <input type="number" name="price" value="{{ old('price', $product->price) }}" placeholder="Precio">
+            <input type="text" name="price" value="{{ old('price', $product->price) }}" placeholder="Precio">
         </p>
 
         @error('price')
@@ -57,7 +61,7 @@ Editar Producto
         </p>
 
         @error('description')
-        <p style="color: red;">
+        <p style="color: red; margin-bottom: 15px;">
             {{ $message }}
         </p>
         @enderror

@@ -24,7 +24,7 @@ Editar Usuario
         </p>
         @enderror
 
-        <p type="Email:">
+        <p type="Correo electrónico:">
             <input name="email" value="{{ old('email', $user->email) }}" style="background-color: rgb(243, 243, 243);"
                 placeholder="Ingrese su correo..">
         </p>
@@ -34,7 +34,7 @@ Editar Usuario
         </p>
         @enderror
 
-        <p type="Confirmar Email:">
+        <p type="Confirmar correo:">
             <input name="repeat_email" value="{{ old('repeat_email') }}" placeholder="Confirme su correo..">
         </p>
         @error('repeat_email')
@@ -43,10 +43,10 @@ Editar Usuario
         </p>
         @enderror
 
-        <p type="Seleccione una imagen">
+        <p type="Seleccione una imágen">
             <input type="file" name="photo" id="inFile" accept="image/*">
             <div class="image-preview" id="imagePreview">
-                <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Image Preview"
+                <img src="/images/users/{{ $user->photo ? $user->photo : 'doctor.png' }}" alt="Vista previa"
                     width="200" class="image">
                 <span style="display: none;" class="default-text">Sin foto actual</span>
             </div>

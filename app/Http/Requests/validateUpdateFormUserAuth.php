@@ -25,17 +25,17 @@ class validateUpdateFormUserAuth extends FormRequest
     {
         return [
             'name.required' => 'El :attribute es requerido',
-            'name.regex' => 'El :attribute debe ser solo letras',
-            'name.min' => 'El :attribute debe de tener minimo 8 caracteres',
-            'name.max' => 'El :attribute debe de tener maximo 64 caracteres',
-            'email.regex' => 'El formato del :attribute no es valido',
+            'name.regex' => 'El :attribute debe contener solo letras',
+            'name.min' => 'El :attribute debe de tener mínimo 8 carácteres',
+            'name.max' => 'El :attribute debe de tener máximo 64 carácteres',
+            'email.regex' => 'El formato del :attribute no es válido',
             'email.required' => 'El :attribute es requerido',
             'password.required' => 'el campo :attribute es requerido',
-            'password.password' => 'La :attribute no coincide con la registrada',
+            'password.password' => 'La :attribute no coíncide con la registrada',
             'repeat_email.required' => ':attribute es requerido',
-            'repeat_email.regex' => 'El formato de :attribute no es valido',
-            'repeat_email.same' => 'email y :attribute no coinciden',
-            'photo' => 'el :attribute debe de ser imagen',
+            'repeat_email.regex' => 'El formato de :attribute no es válido',
+            'repeat_email.same' => 'Los correos no coinciden',
+            'photo' => 'el :attribute debe de ser imágen',
         ];
     }
     public function attributes()
@@ -44,7 +44,7 @@ class validateUpdateFormUserAuth extends FormRequest
             'name' => 'nombre',
             'email' => 'email',
             'repeat_email'=> 'confirmar email',
-            'password' => 'password',
+            'password' => 'contraseña',
             'photo' => 'Campo photo',
         ];
     }

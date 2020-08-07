@@ -25,28 +25,28 @@ class validateFormUsers extends FormRequest
     {
         return [
             'name.required' => 'El :attribute es requerido',
-            'name.regex' => 'El :attribute debe ser solo letras',
-            'name.min' => 'El :attribute debe de tener minimo 8 caracteres',
-            'name.max' => 'El :attribute debe de tener maximo 64 caracteres',
+            'name.regex' => 'El :attribute debe contener solo letras',
+            'name.min' => 'El :attribute debe de tener mínimo 8 carácteres',
+            'name.max' => 'El :attribute debe de tener máximo 64 carácteres',
             'email.email' => 'El formato del :attribute debe ser una dirección de correo válida.',
-            'email.unique' => 'El email ya esta en uso',
+            'email.unique' => 'El email ya está en uso',
             'email.required' => 'El :attribute es requerido',
             'password.required'=>'El :attribute es requerido',
-            'password.min'=>'El :attribute debe de tener minimo 8 caracteres',
-            'repeat_password.required'=>'El :attribute es requerido',
+            'password.min'=>'El :attribute debe de tener mínimo 8 carácteres',
+            'repeat_password.required'=>':attribute es requerido',
             'repeat_password.same'=>'Las contraseñas no coinciden',
-            'repeat_password.min'=>'El :attribute debe de tener minimo 8 caracteres',
-            'photo' => 'el :attribute debe de ser imagen',
+            'repeat_password.min'=>'El :attribute debe de tener mínimo 8 carácteres',
+            'photo' => 'el :attribute debe de ser imágen',
         ];
     }
     public function attributes()
     {
         return [
-            'name' => 'Campo nombre',
+            'name' => 'campo nombre',
             'email' => 'campo email',
-            'password' => 'Campo password',
-            'repeat_password' => 'Campo confirmar contraseña',
-            'photo' => 'Campo photo'
+            'password' => 'campo contraseña',
+            'repeat_password' => 'campo confirmar contraseña',
+            'photo' => 'campo foto'
         ];
     }
 }

@@ -29,7 +29,7 @@ Editar Usuario
         </div>
 
         <div class="col-2">
-            <p type="Email:">
+            <p type="Correo electrónico:">
                 <input name="email" value="{{ old('email', $user->email) }}"
                     placeholder="Ingrese su correo..">
             </p>
@@ -41,7 +41,7 @@ Editar Usuario
         </div>
 
         <div class="col-2">
-            <p type="Confirmar Email:">
+            <p type="Confirmar correo:">
                 <input name="repeat_email" value="{{ old('repeat_email') }}" placeholder="Confirme su correo..">
             </p>
             @error('repeat_email')
@@ -52,7 +52,7 @@ Editar Usuario
         </div>
 
         <div class="col-2">
-            <p type="Confirme su contraseña actual">
+            <p type="Confirme su contraseña actúal:">
                 <input type="password" id="password" name="password" placeholder="Confirme contraseña">
                 <span toggle="#password-field" id="togglePassword" class="fa fa-fw fa-eye field-icon"></span>
             </p>
