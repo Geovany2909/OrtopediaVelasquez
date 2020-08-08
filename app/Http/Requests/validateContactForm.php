@@ -16,7 +16,7 @@ class validateContactForm extends FormRequest
             'name' => 'required|regex:/^[\pL\s\-]+$/u|min:4',
             'email' =>  'required|email',
             'comment' =>  'required',
-            'phone' => 'required|alpha_num',
+            'phone' => 'required|phone:ES,AUTO',
             recaptchaFieldName() => recaptchaRuleName()
         ];
     }
@@ -30,7 +30,6 @@ class validateContactForm extends FormRequest
             'email.email' => 'El :attribute debe de ser un email válido',
             'comment.required' => 'El :attribute es requerido',
             'phone.required' => 'El :attribute es requerido',
-            'phone.alpha_num' => 'El :attribute solo debe de tener números',
         ];
     }
     public function attributes()

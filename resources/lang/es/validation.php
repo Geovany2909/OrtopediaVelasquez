@@ -147,6 +147,7 @@ return [
     */
 
     'attributes' => [],
-    'recaptcha' => 'Hey!!! Debes de verificar que no eres robot!',
+    'recaptcha' => 'Debes de verificar que no eres robot!',
+    'phone'     => 'El campo telefono contiene un numero invalido.',
 
 ];
