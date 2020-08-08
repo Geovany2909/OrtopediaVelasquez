@@ -10,4 +10,6 @@ npm-debug.log
 yarn-error.log
 .env
 public/images/
-/vendor*
+/vendor
+vendor*
+vendor
