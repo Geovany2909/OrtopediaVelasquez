@@ -20,15 +20,15 @@ sr.reveal('.about__text',{delay: 400});
 /*SCROLL INDEX*/
 sr.reveal('.home__txt',{});
 sr.reveal('.home__text',{});
-sr.reveal('.home__data',{interval: 200});
-sr.reveal('.home__img',{delay: 600});
+sr.reveal('.home__data',{interval: 50});
+sr.reveal('.home__img',{delay: 100});
 
 /*SCROLL PRODUCT*/
 sr.reveal('.tit', {});
-sr.reveal('.work__img',{interval: 300});
+sr.reveal('.work__img',{interval: 50});
 
 /*SCROLL CONTACT*/
-sr.reveal('.input',{interval: 200});
+sr.reveal('.formulario__grupo',{interval: 50});
 
 
 
